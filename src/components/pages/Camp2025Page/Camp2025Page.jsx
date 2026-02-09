@@ -108,7 +108,7 @@ function Camp2025Page() {
               <div className="camp2025-trainer__photo">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Андрей Гвоздев" />
               </div>
-              <a href="#" className="camp2025-trainer__btn">Андрей Гвоздев</a>
+              <Link to="/andrey_gvozdev" className="camp2025-trainer__btn">Андрей Гвоздев</Link>
             </div>
           </div>
         </section>

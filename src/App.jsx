@@ -3,6 +3,7 @@ import HomePage from './components/pages/HomePage'
 import TrainingPage from './components/pages/TrainingPage'
 import CoachPage from './components/pages/CoachPage'
 import Camp2025Page from './components/pages/Camp2025Page'
+import AndreyGvozdevPage from './components/pages/AndreyGvozdevPage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/training" element={<TrainingPage />} />
           <Route path="/coach" element={<CoachPage />} />
           <Route path="/camp2025" element={<Camp2025Page />} />
+          <Route path="/andrey_gvozdev" element={<AndreyGvozdevPage />} />
         </Routes>
       </div>
     </Router>
