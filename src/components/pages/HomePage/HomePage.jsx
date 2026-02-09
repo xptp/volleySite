@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useInView from '../../hooks/useInView'
 
 function HomePage() {
@@ -37,16 +38,16 @@ function HomePage() {
             ref={buttonsRef} 
             className={`content__buttons ${buttonsInView ? 'animate-in' : ''}`}
           >
-            <a href="#about" className="btn-menu" style={{ animationDelay: '0ms' }}>
+            <Link to="/coach" className="btn-menu" style={{ animationDelay: '0ms' }}>
               <span className="btn-menu__icon">🌐</span>
               <span className="btn-menu__text">О ТРЕНЕРЕ</span>
               <span className="btn-menu__arrow">›</span>
-            </a>
-            <a href="#camp" className="btn-menu" style={{ animationDelay: '100ms' }}>
+            </Link>
+            <Link to="/camp2025" className="btn-menu" style={{ animationDelay: '100ms' }}>
               <span className="btn-menu__icon">🌐</span>
               <span className="btn-menu__text">СПОРТИВНЫЙ ЛАГЕРЬ</span>
               <span className="btn-menu__arrow">›</span>
-            </a>
+            </Link>
             <a href="/training" className="btn-menu" style={{ animationDelay: '200ms' }}>
               <span className="btn-menu__icon">🌐</span>
               <span className="btn-menu__text">ТРЕНИРОВКИ</span>

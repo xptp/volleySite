@@ -1,0 +1,607 @@
+@use '../variables' as *;
+
+// ===== CAMP 2025 PAGE =====
+.camp2025-page {
+  background: $black;
+  min-height: 100vh;
+}
+
+// ===== ФОН: приклеен, не скроллится =====
+.camp2025-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920') center/cover no-repeat;
+}
+
+// ===== НАДПИСИ И КНОПКИ: в потоке страницы, прокручиваются вверх =====
+.camp2025-hero-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.camp2025-hero-content__title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: $white;
+  margin: 0 0 16px;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.camp2025-hero-content__date {
+  font-size: 1.1rem;
+  color: $white;
+  margin: 0 0 28px;
+  opacity: 0.95;
+}
+
+.camp2025-hero-content__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.camp2025-hero-content__btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &--primary {
+    background: $white;
+    color: $black;
+    border: none;
+  }
+
+  &--outline {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+  }
+}
+
+// ===== КОНТЕНТ: наезжает на фон при прокрутке =====
+.camp2025-content {
+  position: relative;
+  z-index: 2;
+  background: $black;
+}
+
+// ===== БЕЛЫЙ БЛОК С ТЕКСТОМ ПО ЦЕНТРУ =====
+.camp2025-text {
+  background: $white;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.camp2025-text p {
+  max-width: 640px;
+  margin: 0 auto 1.25em;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: $gray-800;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ===== ЧЁРНЫЙ БЛОК «Почему кемп #STROEVTEAM?» =====
+.camp2025-why {
+  background: $black;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.camp2025-why__title {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: $white;
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.camp2025-why__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 40px;
+}
+
+.camp2025-why__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.camp2025-why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.camp2025-why__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  &--percent {
+    position: relative;
+
+    .camp2025-why__icon-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: $white;
+    }
+  }
+}
+
+.camp2025-why__text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+// ===== БЛОК ТРЕНЕРЫ =====
+.camp2025-trainers {
+  background: $black;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.camp2025-trainers__row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.camp2025-trainers__title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: $white;
+  margin: 0 8px;
+  padding: 0 12px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    order: -1;
+    margin: 0 0 8px;
+  }
+}
+
+.camp2025-trainer--left .camp2025-trainer__photo {
+  margin-right: -14px;
+}
+
+.camp2025-trainer--right .camp2025-trainer__photo {
+  margin-left: -14px;
+}
+
+@media (max-width: 768px) {
+  .camp2025-trainer--left .camp2025-trainer__photo,
+  .camp2025-trainer--right .camp2025-trainer__photo {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.camp2025-trainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camp2025-trainer__photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  margin-bottom: 16px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.camp2025-trainer__btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $black;
+  background: $white;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// ===== БЕЛЫЙ БЛОК ДАТЫ И ЦЕНЫ =====
+.camp2025-prices {
+  background: $white;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.camp2025-prices__title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: $black;
+  margin: 0 0 20px;
+}
+
+.camp2025-prices__intro {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $gray-800;
+}
+
+.camp2025-prices__list {
+  list-style: none;
+  margin: 0 auto 36px;
+  padding: 0;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 24px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: $gray-800;
+    line-height: 1.4;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $black;
+    }
+  }
+}
+
+.camp2025-prices__alt {
+  font-size: 0.95rem;
+  color: $gray-800;
+  margin: 0 0 20px;
+}
+
+.camp2025-prices__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.camp2025-prices__btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: $white;
+  background: $black;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.25s ease, color 0.25s ease;
+
+  &:hover {
+    background: $primary-red;
+    color: $white;
+  }
+
+  .camp2025-prices__btn-icon {
+    display: flex;
+    color: inherit;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+// ===== ЧЁРНЫЙ БЛОК С ФОРМОЙ ЗАПИСИ =====
+.camp2025-form {
+  background: $black;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.camp2025-form__title {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: $white;
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.camp2025-form__subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 32px;
+}
+
+.camp2025-form__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.camp2025-form__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.camp2025-form__label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.camp2025-form__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  color: $white;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.camp2025-form__phone-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 0 14px 0 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+
+  &:focus-within {
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.camp2025-form__phone-prefix {
+  flex-shrink: 0;
+  padding-left: 14px;
+  font-size: 1.1rem;
+}
+
+.camp2025-form__phone-wrap .camp2025-form__input {
+  border: none;
+  background: transparent;
+  padding-left: 0;
+}
+
+.camp2025-form__submit {
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $white;
+  background: transparent;
+  border: 1px solid $white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $white;
+    color: $black;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 8px;
+  }
+}
+
+// ===== Маленький белый блок с надписью =====
+.camp2025-notice {
+  background: $white;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.camp2025-notice p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: $gray-700;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+// ===== Чёрный блок с кнопкой «Главная» (примерно на 30% больше предыдущего) =====
+.camp2025-footer {
+  background: $black;
+  padding: calc(28px * 1.3) 24px calc(28px * 1.3);
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camp2025-footer__btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $white;
+  background: transparent;
+  border: 1px solid $white;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: $white;
+    color: $black;
+  }
+}
+
+// ===== Финальный белый блок: телефон, город, соцсети =====
+.camp2025-contacts {
+  background: $white;
+  padding: 48px 24px 56px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.camp2025-contacts__phone {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $black;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
+
+.camp2025-contacts__location {
+  font-size: 1rem;
+  color: $gray-700;
+}
+
+.camp2025-contacts__socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.camp2025-contacts__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid $gray-800;
+  color: $black;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    border-color: $black;
+    background: rgba(0, 0, 0, 0.06);
+  }
+}

@@ -8,7 +8,7 @@ function TrainingPage() {
   const trainings = [
     {
       title: 'Групповая тренировка',
-      image: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400',
+      image: '/images/training-photo1.webp?w=400',
       details: [
         'Групповая РАЗОВАЯ тренировка 120 мин.',
         '1500р/чел (4-8 чел).',
@@ -19,7 +19,7 @@ function TrainingPage() {
     },
     {
       title: 'Сплит тренировка',
-      image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400',
+      image: '/images/training-photo2.webp?w=400',
       details: [
         'Стоимость сплит тренировки 2500р/чел (мин двое),',
         '2000р/чел (если трое) (80 мин).'
@@ -27,7 +27,7 @@ function TrainingPage() {
     },
     {
       title: 'Индивидуальная тренировка',
-      image: 'https://images.unsplash.com/photo-1592656094267-764a45160876?w=400',
+      image: '/images/training-photo3.webp?w=400',
       details: [
         'Стоимость индивидуальной тренировки',
         '4000р/чел (от 60 мин).'
