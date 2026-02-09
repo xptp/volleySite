@@ -2,7 +2,7 @@
 
 $purple: #6b4e9e;
 $ls-tight: 0.5px;
-$ls-normal: 1px;
+$ls-normal: 0.2px;
 $ls-wide: 2px;
 
 // ===== LAYOUT + ЕДИНЫЙ СТИЛЬ ШРИФТОВ =====
@@ -10,6 +10,7 @@ $ls-wide: 2px;
   background: $black;
   min-height: 100vh;
   font-family: $font-family;
+  overflow-x: hidden; // убирает щель справа при 100vw и сужении экрана
 }
 
 // ===== HERO (фото на весь экран, контент не наезжает сильно) =====
@@ -37,30 +38,37 @@ $ls-wide: 2px;
 $dapsimi-from: #3e347d;
 $dapsimi-to: #99396b;
 
-// ===== БЕЛЫЙ БЛОК: логотип в коде в нижнем блоке, визуально заезжает на фото =====
+// ===== БЕЛЫЙ БЛОК: логотип в обёртке с position absolute — половина на фото =====
 .coach-intro {
   background: $white;
   text-align: center;
   padding: 0 24px 48px;
+  padding-top: 75px; // место под нижнюю половину логотипа (144px / 2 + запас)
   margin-top: -70px; // белый блок заходит на hero
   position: relative;
   z-index: 2;
-  overflow: visible; // не обрезать логотип, когда он выходит вверх
+  overflow: visible;
+
+  &__logo-wrap {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%); // центр логотипа на верхней границе белого блока
+    width: 244px; // было 90px, +60%
+    z-index: 5;
+  }
 
   &__logo {
-    width: 90px;
+    width: 100%;
     height: auto;
     display: block;
-    margin: -48px auto 20px; // тянем вверх: верхняя часть логотипа на фото, нижняя на белом
-    position: relative;
-    z-index: 10; // поверх hero, чтобы логотип рисовался поверх фото
   }
 
   &__name {
-    font-size: 1.95rem;
-    font-weight: 700;
+    font-size: 2.15rem;
+    font-weight: 900;
     color: $black;
-    margin: 0 0 8px;
+    margin: 50px 0 8px;
     letter-spacing: $ls-normal;
     line-height: 1.2;
 
@@ -77,7 +85,7 @@ $dapsimi-to: #99396b;
     letter-spacing: $ls-tight;
   }
 
-  // Полосы на всю ширину экрана: контейнер на 100vw, каждая полоса на 100%
+  // Полосы на всю ширину экрана
   &__marquee {
     margin: 24px 0 0;
     width: 100vw;
@@ -167,8 +175,7 @@ $dapsimi-to: #99396b;
     letter-spacing: $ls-tight;
   }
 
-  // Анимация появления при скролле (слева направо)
-  &__logo,
+  // Анимация появления при скролле (слева направо). Логотип не скрываем — он в absolute
   &__name,
   &__role {
     opacity: 0;
@@ -186,9 +193,8 @@ $dapsimi-to: #99396b;
   }
 
   &.animate-in {
-    .coach-intro__logo { animation: slideInRight 0.5s ease 0s forwards; }
-    .coach-intro__name { animation: slideInRight 0.5s ease 0.08s forwards; }
-    .coach-intro__role { animation: slideInRight 0.5s ease 0.16s forwards; }
+    .coach-intro__name { animation: slideInRight 0.5s ease 0s forwards; }
+    .coach-intro__role { animation: slideInRight 0.5s ease 0.08s forwards; }
     .coach-intro__marquee { animation: slideInRight 0.5s ease 0.24s forwards; }
     .coach-intro__about { animation: slideInRight 0.5s ease 0.32s forwards; }
   }

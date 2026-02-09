@@ -39,10 +39,12 @@ function CoachPage() {
         <div className="coach-hero__divider" />
       </section>
 
-      {/* Контент: белый блок — логотип (половина на фото), имя, должность, дапсими, Обо мне */}
+      {/* Контент: белый блок, логотип внутри но абсолютно позиционирован — наполовину на фото */}
       <main className="coach-content">
         <div ref={introRef} className={`coach-intro ${introInView ? 'animate-in' : ''}`}>
-          <img src="/images/logo1.svg" alt="Stroev Team" className="coach-intro__logo" />
+          <div className="coach-intro__logo-wrap">
+            <img src="/images/logo1.svg" alt="Stroev Team" className="coach-intro__logo" />
+          </div>
           <h1 className="coach-intro__name">Строев Альберт</h1>
           <p className="coach-intro__role">тренер по пляжному волейболу</p>
 
