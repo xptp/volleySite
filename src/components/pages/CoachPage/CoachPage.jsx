@@ -5,6 +5,7 @@ const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1612872087720-bb876e2
 const PLACEHOLDER_SQUARE = 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400'
 
 function CoachPage() {
+  const [introRef, introInView] = useInView()
   const [aboutRef, aboutInView] = useInView()
   const [careerRef, careerInView] = useInView()
   const [galleryRef, galleryInView] = useInView()
@@ -33,21 +34,6 @@ function CoachPage() {
 
   return (
     <div className="coach-page">
-      {/* Navbar — минимальный, без тёмной полоски */}
-      <nav className="coach-nav">
-        <div className="coach-nav__inner">
-          <Link to="/" className="coach-nav__logo">
-            <img src="/images/logo1.svg" alt="Stroev Team" />
-          </Link>
-          <div className="coach-nav__links">
-            <Link to="/">Главная</Link>
-            <Link to="/coach">О тренере</Link>
-            <Link to="/training">Тренировки</Link>
-            <a href="tel:+79643223344">Контакты</a>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero — только фото, без текста и логотипа */}
       <section className="coach-hero">
         <div className="coach-hero__divider" />
@@ -55,7 +41,7 @@ function CoachPage() {
 
       {/* Контент: белый блок — логотип (половина на фото), имя, должность, дапсими, Обо мне */}
       <main className="coach-content">
-        <div className="coach-intro">
+        <div ref={introRef} className={`coach-intro ${introInView ? 'animate-in' : ''}`}>
           <img src="/images/logo1.svg" alt="Stroev Team" className="coach-intro__logo" />
           <h1 className="coach-intro__name">Строев Альберт</h1>
           <p className="coach-intro__role">тренер по пляжному волейболу</p>
@@ -187,8 +173,11 @@ function CoachPage() {
           className={`coach-section coach-quote ${quoteInView ? 'animate-in' : ''}`}
         >
           <div className="coach-section__inner coach-quote__inner">
-            <blockquote className="coach-quote__text">
-              ТЕБЯ ЖДУТ ВЕЛИКИЕ СВЕРШЕНИЯ!
+            <blockquote className="coach-quote__block">
+              <p className="coach-quote__text">
+                Волейбол — это не только сила и техника, но и умение работать в команде. Истинная победа заключается в том, чтобы вместе преодолевать трудности и стремиться к общей цели.
+              </p>
+              <cite className="coach-quote__cite">Альберт Строев</cite>
             </blockquote>
             <div className="coach-quote__action">
               <Link to="/training" className="btn-coach-start">НАЧАТЬ</Link>
@@ -199,6 +188,7 @@ function CoachPage() {
         {/* Футер — без Tilda */}
         <footer className="coach-footer">
           <div className="coach-footer__inner">
+            <Link to="/" className="coach-footer__btn">ГЛАВНАЯ</Link>
             <a href="tel:+79643223344" className="coach-footer__phone">+7 964 322 33 44</a>
             <p className="coach-footer__cta">Записаться на курс</p>
             <div className="coach-footer__socials">
