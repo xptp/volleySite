@@ -8,7 +8,7 @@ function TrainingPage() {
   const trainings = [
     {
       title: 'Групповая тренировка',
-      image: 'images/training-photo1.webp?w=400',
+      image: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400',
       details: [
         'Групповая РАЗОВАЯ тренировка 120 мин.',
         '1500р/чел (4-8 чел).',
@@ -19,15 +19,15 @@ function TrainingPage() {
     },
     {
       title: 'Сплит тренировка',
-      image: 'images/training-photo2.webp?w=400',
+      image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400',
       details: [
-        'Стоимость сплит тренировки 2500р/чел (если двое),',
+        'Стоимость сплит тренировки 2500р/чел (мин двое),',
         '2000р/чел (если трое) (80 мин).'
       ]
     },
     {
       title: 'Индивидуальная тренировка',
-      image: 'images/training-photo3.webp?w=400',
+      image: 'https://images.unsplash.com/photo-1592656094267-764a45160876?w=400',
       details: [
         'Стоимость индивидуальной тренировки',
         '4000р/чел (от 60 мин).'
@@ -37,19 +37,18 @@ function TrainingPage() {
 
   return (
     <div className="training-page">
-      {/* Верхняя белая часть */}
-      <div className="training-page__top">
+      {/* Logo */}
       <div className="training-page__logo">
         <img src="/images/logo1.svg" alt="Stroev Team" />
       </div>
-    </div>
-    
-    {/* Заголовок на черном фоне */}
-    <h1 className="training-page__title">
-      Хочешь научиться играть в волейбол?
-      <br />
-      Я тебя научу!
-    </h1>
+
+      {/* Title */}
+      <h1 className="training-page__title">
+        Хочешь научиться играть в волейбол?
+        <br />
+        Я тебя научу!
+      </h1>
+
       {/* Training Cards */}
       <div 
         ref={cardsRef}
