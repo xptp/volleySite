@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 
 function Camp2025Page() {
+  const [dates, setDates] = useState(null);
+
+  useEffect(() => {
+    fetch('https://opensheet.elk.sh/1r1hqt-xqusneIrpnjt-DcW4sRlkpEbg8F__7fv4zsKg/Лист1')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setDates(data[0]);
+        }
+      })
+      .catch(error => console.error('Ошибка:', error));
+  }, []);
+
   return (
     <div className="camp2025-page">
       {/* Фон приклеен; надписи и кнопки в отдельном блоке — прокручиваются вверх */}
@@ -9,7 +23,7 @@ function Camp2025Page() {
         <h1 className="camp2025-hero-content__title">
           МАЙСКИЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА
         </h1>
-        <p className="camp2025-hero-content__date">Начало: 01.05.2025г.</p>
+        <p className="camp2025-hero-content__date">Начало: {dates?.startDate}г.</p>
         <div className="camp2025-hero-content__buttons">
           <a href="#" className="camp2025-hero-content__btn camp2025-hero-content__btn--primary">
             Записаться

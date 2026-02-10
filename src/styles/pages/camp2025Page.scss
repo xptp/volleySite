@@ -198,46 +198,51 @@
 .camp2025-trainers__row {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 0;
-  flex-wrap: wrap;
-  max-width: 700px;
+  flex-wrap: nowrap;
+  max-width: 720px;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    flex-wrap: wrap;
   }
 }
 
 .camp2025-trainers__title {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(3.3rem, 7vw, 4.3rem);
   font-weight: 700;
   color: $white;
-  margin: 0 8px;
-  padding: 0 12px;
-  letter-spacing: 2px;
+  margin: -75px 0 0 0;
+  padding: 0 8px;
+  letter-spacing: 3px;
   position: relative;
-  z-index: 2;
-  align-self: center;
+  z-index: 1;
   flex-shrink: 0;
+  align-self: flex-start;
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     order: -1;
     margin: 0 0 8px;
   }
 }
 
 .camp2025-trainer--left .camp2025-trainer__photo {
-  margin-right: -14px;
+  margin-right: -93px;
+  position: relative;
+  z-index: 3;
 }
 
 .camp2025-trainer--right .camp2025-trainer__photo {
-  margin-left: -14px;
+  margin-left: -93px;
+  position: relative;
+  z-index: 3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .camp2025-trainer--left .camp2025-trainer__photo,
   .camp2025-trainer--right .camp2025-trainer__photo {
     margin-left: 0;
@@ -268,13 +273,15 @@
 }
 
 .camp2025-trainer__btn {
-  display: inline-block;
-  padding: 12px 28px;
+  display: block;
+  width: 140px;
+  padding: 12px 16px;
   font-size: 17px;
   font-weight: 600;
   color: $black;
   background: $white;
   border-radius: 6px;
+  text-align: center;
   transition: opacity 0.2s ease;
 
   &:hover {
