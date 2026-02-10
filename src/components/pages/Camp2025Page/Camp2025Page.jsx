@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
+import useInView from '../../hooks/useInView';
 
 function Camp2025Page() {
   const [dates, setDates] = useState(null);
+
+  const [heroRef, heroInView] = useInView({ threshold: 0.15 });
+  const [textRef, textInView] = useInView({ threshold: 0.15 });
+  const [whyRef, whyInView] = useInView({ threshold: 0.1 });
+  const [trainersRef, trainersInView] = useInView({ threshold: 0.1 });
+  const [pricesRef, pricesInView] = useInView({ threshold: 0.1 });
+  const [formRef, formInView] = useInView({ threshold: 0.1 });
+  const [noticeRef, noticeInView] = useInView({ threshold: 0.2 });
+  const [footerRef, footerInView] = useInView({ threshold: 0.2 });
+  const [contactsRef, contactsInView] = useInView({ threshold: 0.2 });
 
   useEffect(() => {
     fetch('https://opensheet.elk.sh/1r1hqt-xqusneIrpnjt-DcW4sRlkpEbg8F__7fv4zsKg/Лист1')
@@ -19,7 +30,7 @@ function Camp2025Page() {
     <div className="camp2025-page">
       {/* Фон приклеен; надписи и кнопки в отдельном блоке — прокручиваются вверх */}
       <div className="camp2025-hero" aria-hidden="true" />
-      <div className="camp2025-hero-content">
+      <div ref={heroRef} className={`camp2025-hero-content ${heroInView ? 'animate-in' : ''}`}>
         <h1 className="camp2025-hero-content__title">
           МАЙСКИЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА
         </h1>
@@ -36,7 +47,7 @@ function Camp2025Page() {
 
       {/* Контент наезжает на картинку при прокрутке */}
       <main className="camp2025-content">
-        <section className="camp2025-text">
+        <section ref={textRef} className={`camp2025-text ${textInView ? 'animate-in' : ''}`}>
           <p>Хотите улучшить свои навыки в пляжном волейболе?</p>
           <p>Не ищите никого, кроме меня!</p>
           <p>
@@ -47,7 +58,7 @@ function Camp2025Page() {
           </p>
         </section>
 
-        <section className="camp2025-why">
+        <section ref={whyRef} className={`camp2025-why ${whyInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-why__title">Почему кемп #STROEVTEAM?</h2>
           <p className="camp2025-why__subtitle">Что вас ждет?</p>
           <ul className="camp2025-why__grid">
@@ -109,7 +120,7 @@ function Camp2025Page() {
           </ul>
         </section>
 
-        <section className="camp2025-trainers">
+        <section ref={trainersRef} className={`camp2025-trainers ${trainersInView ? 'animate-in' : ''}`}>
           <div className="camp2025-trainers__row">
             <div className="camp2025-trainer camp2025-trainer--left">
               <div className="camp2025-trainer__photo">
@@ -127,7 +138,7 @@ function Camp2025Page() {
           </div>
         </section>
 
-        <section className="camp2025-prices">
+        <section ref={pricesRef} className={`camp2025-prices ${pricesInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-prices__title">Даты и Цены</h2>
           <p className="camp2025-prices__intro">
             Си-отель проживание в номере категории «Standard» при двухместном размещении, завтраки «Шведский стол», Spa комплиментарно для гостей отеля:
@@ -157,7 +168,7 @@ function Camp2025Page() {
           </div>
         </section>
 
-        <section className="camp2025-form">
+        <section ref={formRef} className={`camp2025-form ${formInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-form__title">
             ЗАПИСЫВАЙТЕСЬ В ТРЕНИРОВОЧНЫЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА НА БАЗЕ «СИ-ОТЕЛЬ» 2025
           </h2>
@@ -182,15 +193,15 @@ function Camp2025Page() {
           </form>
         </section>
 
-        <section className="camp2025-notice">
+        <section ref={noticeRef} className={`camp2025-notice ${noticeInView ? 'animate-in' : ''}`}>
           <p>В ближайшее время после подачи заявки, с вами свяжется менеджер.</p>
         </section>
 
-        <section className="camp2025-footer">
+        <section ref={footerRef} className={`camp2025-footer ${footerInView ? 'animate-in' : ''}`}>
           <Link to="/" className="camp2025-footer__btn">ГЛАВНАЯ</Link>
         </section>
 
-        <section className="camp2025-contacts">
+        <section ref={contactsRef} className={`camp2025-contacts ${contactsInView ? 'animate-in' : ''}`}>
           <a href="tel:+79641223344" className="camp2025-contacts__phone">+7 (964)1-22-33-44</a>
           <span className="camp2025-contacts__location">Россия, Сочи</span>
           <div className="camp2025-contacts__socials">
