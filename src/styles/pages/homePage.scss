@@ -24,19 +24,20 @@
 
   &__tagline {
     display: block;
-    font-size: 17px;
-    font-weight: 400;
+    font-size: 0.85rem;
+    font-weight: 500;
     letter-spacing: 6px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
   }
 
   &__title {
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     color: $white;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
     margin: 0;
 
     @media (max-width: $breakpoint-md) {
@@ -102,14 +103,15 @@
   }
 
   &__description {
-    font-size: 18px;
-    line-height: 1.9;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 50px;
+    letter-spacing: 0.2px;
 
     .highlight {
       color: $white;
-      font-weight: 500;
+      font-weight: 600;
     }
   }
 
@@ -154,8 +156,8 @@
   }
 
   &__phone {
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
     color: $white;
     letter-spacing: 1px;
     transition: color $transition;
@@ -166,9 +168,10 @@
   }
 
   &__location {
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
     margin-bottom: 10px;
+    letter-spacing: 0.5px;
   }
 
   &__socials {
@@ -193,11 +196,11 @@
   align-items: center;
   background: $primary-red;
   color: $white;
-  padding: 14px 20px;
+  padding: 15px 24px;
   border-radius: 30px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: all $transition;
 

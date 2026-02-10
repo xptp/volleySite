@@ -57,12 +57,13 @@
 }
 
 .camp2025-hero-content__title {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
   font-weight: 700;
   color: $white;
-  margin: 0 0 16px;
-  letter-spacing: 1px;
-  line-height: 1.3;
+  margin: 0 0 20px;
+  letter-spacing: 3px;
+  line-height: 1.25;
+  text-transform: uppercase;
   opacity: 0;
   transform: translateY(-40px);
 
@@ -73,8 +74,9 @@
 
 .camp2025-hero-content__date {
   font-size: 1.1rem;
-  color: $white;
-  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 32px;
+  letter-spacing: 0.5px;
   opacity: 0;
   transform: translateY(-40px);
 
@@ -98,27 +100,35 @@
 
 .camp2025-hero-content__btn {
   display: inline-block;
-  padding: 14px 32px;
-  font-size: 17px;
+  padding: 15px 36px;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.9;
-  }
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 
   &--primary {
     background: $white;
     color: $black;
-    border: none;
+    border: 2px solid $white;
+
+    &:hover {
+      background: transparent;
+      color: $white;
+    }
   }
 
   &--outline {
     background: transparent;
     color: $white;
-    border: 1px solid $white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    &:hover {
+      border-color: $white;
+      background: $white;
+      color: $black;
+    }
   }
 }
 
@@ -132,15 +142,16 @@
 // ===== БЕЛЫЙ БЛОК С ТЕКСТОМ ПО ЦЕНТРУ =====
 .camp2025-text {
   background: $white;
-  padding: 56px 24px 64px;
+  padding: 72px 24px 80px;
   text-align: center;
 
   p {
     max-width: 860px;
-    margin: 0 auto 1.25em;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    margin: 0 auto 1.3em;
+    font-size: 1.1rem;
+    line-height: 1.8;
     color: $gray-800;
+    letter-spacing: 0.2px;
     opacity: 0;
     transform: translateX(-40px);
 
@@ -161,16 +172,17 @@
 // ===== ЧЁРНЫЙ БЛОК «Почему кемп #STROEVTEAM?» =====
 .camp2025-why {
   background: $black;
-  padding: 56px 24px 64px;
+  padding: 72px 24px 80px;
   text-align: center;
 }
 
 .camp2025-why__title {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
   font-weight: 700;
   color: $white;
   margin: 0 0 12px;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -180,9 +192,10 @@
 }
 
 .camp2025-why__subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 40px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 48px;
+  letter-spacing: 0.3px;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -257,14 +270,15 @@
 
 .camp2025-why__text {
   font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.2px;
 }
 
 // ===== БЛОК ТРЕНЕРЫ =====
 .camp2025-trainers {
   background: $black;
-  padding: 56px 24px 64px;
+  padding: 88px 24px 96px;
   text-align: center;
 }
 
@@ -274,7 +288,7 @@
   align-items: flex-start;
   gap: 0;
   flex-wrap: nowrap;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   opacity: 0;
   transform: translateX(-40px);
@@ -292,12 +306,12 @@
 }
 
 .camp2025-trainers__title {
-  font-size: clamp(3.3rem, 7vw, 4.3rem);
+  font-size: clamp(4.3rem, 9vw, 5.6rem);
   font-weight: 700;
   color: $white;
-  margin: -75px 0 0 0;
-  padding: 0 8px;
-  letter-spacing: 3px;
+  margin: -95px 0 0 0;
+  padding: 0 10px;
+  letter-spacing: 4px;
   position: relative;
   z-index: 1;
   flex-shrink: 0;
@@ -318,11 +332,11 @@
 }
 
 .camp2025-trainer--left {
-  margin-right: -55px;
+  margin-right: -70px;
 }
 
 .camp2025-trainer--right {
-  margin-left: -55px;
+  margin-left: -70px;
 }
 
 @media (max-width: 600px) {
@@ -334,13 +348,13 @@
 }
 
 .camp2025-trainer__photo {
-  width: 140px;
-  height: 140px;
+  width: 182px;
+  height: 182px;
   border-radius: 50%;
   overflow: hidden;
   border: none;
   flex-shrink: 0;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 
   img {
     width: 100%;
@@ -352,14 +366,15 @@
 .camp2025-trainer__btn {
   display: inline-block;
   white-space: nowrap;
-  padding: 12px 24px;
-  font-size: 17px;
+  padding: 15px 36px;
+  font-size: 1.05rem;
   font-weight: 600;
+  letter-spacing: 0.5px;
   color: $black;
   background: $white;
   border-radius: 6px;
   text-align: center;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease;
 
   &:hover {
     background: $primary-red;
@@ -370,15 +385,17 @@
 // ===== БЕЛЫЙ БЛОК ДАТЫ И ЦЕНЫ =====
 .camp2025-prices {
   background: $white;
-  padding: 56px 24px 64px;
+  padding: 72px 24px 80px;
   text-align: center;
 }
 
 .camp2025-prices__title {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
   font-weight: 700;
   color: $black;
   margin: 0 0 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -389,10 +406,11 @@
 
 .camp2025-prices__intro {
   max-width: 860px;
-  margin: 0 auto 28px;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: $gray-800;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: $gray-700;
+  letter-spacing: 0.2px;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -426,8 +444,8 @@
     align-items: center;
     gap: 12px;
     font-size: 0.95rem;
-    color: $gray-800;
-    line-height: 1.4;
+    color: $gray-700;
+    line-height: 1.5;
 
     &::before {
       content: '';
@@ -442,8 +460,9 @@
 
 .camp2025-prices__alt {
   font-size: 0.95rem;
-  color: $gray-800;
-  margin: 0 0 20px;
+  color: $gray-600;
+  margin: 0 0 28px;
+  letter-spacing: 0.2px;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -469,15 +488,16 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
-  font-size: 15px;
+  gap: 10px;
+  padding: 18px 32px;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: $white;
   background: $black;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background 0.25s ease, color 0.25s ease;
 
   &:hover {
@@ -499,23 +519,23 @@
 // ===== ЧЁРНЫЙ БЛОК С ФОРМОЙ ЗАПИСИ =====
 .camp2025-form {
   background: $black;
-  padding: 56px 24px 64px;
+  padding: 72px 24px 80px;
   text-align: center;
 }
 
 .camp2025-form__title {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 700;
   color: $white;
-  margin: 0 0 12px;
-  letter-spacing: 0.5px;
-  line-height: 1.35;
+  margin: 0 0 14px;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+  text-transform: uppercase;
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
   transform: translateX(-40px);
-  height: 200px;
 
   .animate-in & {
     animation: slideFromLeft 0.6s ease 0.1s forwards;
@@ -524,8 +544,9 @@
 
 .camp2025-form__subtitle {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 36px;
+  letter-spacing: 0.3px;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -565,8 +586,11 @@
 }
 
 .camp2025-form__label {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .camp2025-form__input {
@@ -617,20 +641,23 @@
 }
 
 .camp2025-form__submit {
-  padding: 12px 28px;
-  font-size: 17px;
+  padding: 14px 36px;
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: $white;
   background: transparent;
-  border: 1px solid $white;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   flex-shrink: 0;
 
   &:hover {
     background: $white;
     color: $black;
+    border-color: $white;
   }
 
   @media (max-width: 768px) {
@@ -638,78 +665,36 @@
   }
 }
 
-// ===== Маленький белый блок с надписью =====
-.camp2025-notice {
-  background: $white;
-  padding: 28px 24px;
-  text-align: center;
-
-  p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: $gray-700;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 2.5;
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  &.animate-in p {
-    animation: slideFromLeft 0.6s ease 0.1s forwards;
-  }
-}
-
-//  Чёрный блок с кнопкой «Главная» 
-.camp2025-footer {
-  background: $black;
-  padding: calc(28px * 1.3) 24px calc(28px * 1.3);
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.camp2025-footer__btn {
-  display: inline-block;
-  padding: 14px 40px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: $white;
-  background: transparent;
-  border: 1px solid $white;
-  border-radius: 8px;
-  transition: background 0.2s ease, color 0.2s ease;
+// ===== Примечание внутри блока формы =====
+.camp2025-form__notice {
+  margin: 32px auto 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 640px;
+  line-height: 1.5;
   opacity: 0;
   transform: translateX(-40px);
 
   .animate-in & {
-    animation: slideFromLeft 0.6s ease 0.1s forwards;
-  }
-
-  &:hover {
-    background: $white;
-    color: $black;
+    animation: slideFromLeft 0.6s ease 0.45s forwards;
   }
 }
 
 // ===== Финальный белый блок: телефон, город, соцсети =====
 .camp2025-contacts {
   background: $white;
-  padding: 48px 24px 56px;
+  padding: 64px 24px 72px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .camp2025-contacts__phone {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
+  letter-spacing: 1px;
   color: $black;
   transition: color 0.2s ease;
   opacity: 0;
@@ -725,8 +710,9 @@
 }
 
 .camp2025-contacts__location {
-  font-size: 1rem;
-  color: $gray-700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: $gray-600;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -738,8 +724,8 @@
 .camp2025-contacts__socials {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 14px;
+  margin-top: 12px;
   opacity: 0;
   transform: translateX(-40px);
 
@@ -767,5 +753,32 @@
   &:hover {
     border-color: $black;
     background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.camp2025-contacts__home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 44px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: $black;
+  background: transparent;
+  border: 1.5px solid $gray-800;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  opacity: 0;
+  transform: translateX(-40px);
+
+  .animate-in & {
+    animation: slideFromLeft 0.6s ease 0.4s forwards;
+  }
+
+  &:hover {
+    background: $black;
+    color: $white;
+    border-color: $black;
   }
 }

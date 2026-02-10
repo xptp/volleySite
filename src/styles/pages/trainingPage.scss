@@ -18,11 +18,13 @@
   }
 
   &__title {
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 700;
     color: $white;
-    line-height: 1.5;
+    line-height: 1.4;
     margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
     @media (max-width: $breakpoint-md) {
       font-size: 1.4rem;
@@ -90,9 +92,10 @@
   }
 
   &__phone {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
     color: $black;
+    letter-spacing: 1px;
     transition: color $transition;
 
     &:hover {
@@ -102,7 +105,8 @@
 
   &__location {
     font-size: 0.95rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
   }
 
   &__socials {
@@ -150,18 +154,21 @@
   }
 
   &__title {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
     color: $white;
     margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   &__details {
     p {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.6;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
       margin: 0;
+      letter-spacing: 0.2px;
     }
   }
 }
@@ -169,15 +176,15 @@
 // Buttons
 .btn-outline {
   display: inline-block;
-  padding: 14px 40px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 15px 44px;
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: $white;
   background: transparent;
-  border: 1px solid $white;
-  border-radius: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
   cursor: pointer;
   transition: all $transition;
 
@@ -190,9 +197,9 @@
 .btn-red {
   display: inline-block;
   padding: 16px 50px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: $white;
   background: $primary-red;

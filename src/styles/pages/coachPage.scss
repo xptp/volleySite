@@ -54,23 +54,43 @@ $dapsimi-to: #99396b;
     left: 50%;
     top: 0;
     transform: translate(-50%, -50%); // центр логотипа на верхней границе белого блока
-    width: 244px; // было 90px, +60%
+    width: 244.5px; // 244px логотип + 0.25px с каждой стороны = тонкая полурамка
+    height: 244.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 5;
+
+    // Белый круг под логотипом: не просвечивает фон, выступает на 0.25px
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 244.5px;
+      height: 244.5px;
+      border-radius: 50%;
+      background: $white;
+      z-index: 0;
+    }
   }
 
   &__logo {
-    width: 100%;
+    width: 244px;
     height: auto;
     display: block;
+    position: relative;
+    z-index: 1;
   }
 
   &__name {
     font-size: 2.15rem;
-    font-weight: 900;
+    font-weight: 800;
     color: $black;
     margin: 50px 0 8px;
-    letter-spacing: $ls-normal;
+    letter-spacing: 3px;
     line-height: 1.2;
+    text-transform: uppercase;
 
     @media (max-width: $breakpoint-md) {
       font-size: 1.65rem;
@@ -78,11 +98,12 @@ $dapsimi-to: #99396b;
   }
 
   &__role {
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: $gray-600;
     margin: 0;
-    letter-spacing: $ls-tight;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
   // Полосы на всю ширину экрана
@@ -155,24 +176,26 @@ $dapsimi-to: #99396b;
     color: $black;
     text-align: center;
     margin-bottom: 24px;
-    letter-spacing: $ls-normal;
+    letter-spacing: 2px;
     line-height: 1.25;
+    text-transform: uppercase;
   }
 
   &__about-label {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: $black;
     margin: 0 0 10px;
-    letter-spacing: $ls-tight;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   &__about-text {
     font-size: 1.05rem;
-    line-height: 1.75;
-    color: $gray-800;
+    line-height: 1.8;
+    color: $gray-700;
     margin: 0;
-    letter-spacing: $ls-tight;
+    letter-spacing: 0.2px;
   }
 
   // Анимация появления при скролле (слева направо). Логотип не скрываем — он в absolute
@@ -241,8 +264,9 @@ $dapsimi-to: #99396b;
     color: $white;
     text-align: center;
     margin-bottom: 36px;
-    letter-spacing: $ls-wide;
+    letter-spacing: 3px;
     line-height: 1.25;
+    text-transform: uppercase;
 
     @media (max-width: $breakpoint-md) {
       font-size: 1.5rem;
@@ -292,12 +316,12 @@ $dapsimi-to: #99396b;
   }
 
   &__text {
-    color: $black;
+    color: $gray-800;
     font-size: 1.08rem;
-    line-height: 1.75;
+    line-height: 1.8;
     margin: 0;
     text-align: left;
-    letter-spacing: $ls-tight;
+    letter-spacing: 0.2px;
 
     p {
       margin: 0 0 1em;
@@ -331,12 +355,13 @@ $dapsimi-to: #99396b;
   }
 
   &__label {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: $gray-700;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $gray-600;
     max-width: 140px;
     line-height: 1.4;
-    letter-spacing: $ls-tight;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
 }
 
@@ -394,15 +419,16 @@ $dapsimi-to: #99396b;
     font-weight: 700;
     color: $white;
     margin-bottom: 24px;
-    letter-spacing: $ls-wide;
+    letter-spacing: 3px;
     line-height: 1.25;
+    text-transform: uppercase;
   }
 
   &__body {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 1.08rem;
-    line-height: 1.75;
-    letter-spacing: $ls-tight;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
 
     p {
       margin: 0 0 1em;
@@ -640,11 +666,11 @@ $dapsimi-to: #99396b;
 
   &__phone {
     display: block;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: $white;
     margin-bottom: 10px;
-    letter-spacing: $ls-tight;
+    letter-spacing: 1px;
     transition: color $transition;
 
     &:hover {
@@ -653,11 +679,11 @@ $dapsimi-to: #99396b;
   }
 
   &__cta {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.55);
     margin-bottom: 24px;
-    letter-spacing: $ls-tight;
+    letter-spacing: 0.3px;
   }
 
   &__socials {
@@ -690,10 +716,10 @@ $dapsimi-to: #99396b;
   }
 
   &__copy {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.45);
     margin: 0;
-    letter-spacing: $ls-tight;
+    letter-spacing: 0.5px;
   }
 }
