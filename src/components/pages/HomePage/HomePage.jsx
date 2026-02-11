@@ -1,10 +1,28 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useInView from '../../hooks/useInView'
 
+const YANDEX_MAP_SCRIPT =
+  'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab2822b0ab84a6008a80c6734ace1e5e6c89605e7d12fe0b328123004260dd98d&amp;width=800&amp;height=450&amp;lang=ru_RU&amp;scroll=true'
+
 function HomePage() {
   const [buttonsRef, buttonsInView] = useInView()
+  const [mapRef, mapInView] = useInView()
   const [contactsRef, contactsInView] = useInView()
   const [socialsRef, socialsInView] = useInView()
+  const mapContainerRef = useRef(null)
+
+  useEffect(() => {
+    if (!mapContainerRef.current || !mapInView) return
+    const container = mapContainerRef.current
+    if (container.querySelector('script')) return
+    const script = document.createElement('script')
+    script.src = YANDEX_MAP_SCRIPT
+    script.async = true
+    script.charset = 'utf-8'
+    script.type = 'text/javascript'
+    container.appendChild(script)
+  }, [mapInView])
 
   return (
     <>
@@ -27,11 +45,13 @@ function HomePage() {
       <section className="content">
         <div className="content__inner">
           <p className="content__description">
-            Меня зовут Альберт Строев, и я — Ваш надежный проводник в мире волейбола.
+            <h3 className="highlight">ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА</h3>
             <br />
-            В прошлом <span className="highlight">профессиональный спортсмен</span> и многократный <span className="highlight">Чемпион России</span>.
+            Главный тренер <span className="highlight"> Альберт Строев</span> многократный <span className="highlight">Чемпион России</span>.
             <br />
-            Теперь моя цель — передать свои знания, страсть и опыт новым поколениям спортсменов.
+            тут добавить что-то про лагерь
+            <br />
+            желательно что-то уникальное
           </p>
 
           <div 
@@ -53,6 +73,22 @@ function HomePage() {
               <span className="btn-menu__text">О ТРЕНЕРЕ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
+          </div>
+
+          <div
+            ref={mapRef}
+            className={`content__map-block ${mapInView ? 'animate-in' : ''}`}
+          >
+            <h2 className="content__map-title">Наше местоположение
+            </h2>
+            <p className="content__description">
+            Сочи, ул.Урицкого 18а, территория Си-отеля
+            </p>
+            <div
+              ref={mapContainerRef}
+              className="content__map"
+              aria-label="Карта расположения"
+            />
           </div>
 
           <div 
