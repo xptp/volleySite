@@ -280,6 +280,10 @@
   background: $black;
   padding: 88px 24px 96px;
   text-align: center;
+
+  @media (max-width: 600px) {
+    padding: 48px 16px 56px;
+  }
 }
 
 .camp2025-trainers__row {
@@ -297,11 +301,17 @@
     animation: slideFromLeft 0.7s ease 0.1s forwards;
   }
 
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    gap: 32px;
+    padding: 0 8px;
   }
 }
 
@@ -317,9 +327,20 @@
   flex-shrink: 0;
   align-self: flex-start;
 
+  @media (max-width: 768px) {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin: 0;
+    align-self: center;
+    width: 100%;
+    text-align: center;
+  }
+
   @media (max-width: 600px) {
     order: -1;
+    font-size: clamp(2rem, 10vw, 2.75rem);
     margin: 0 0 8px;
+    padding: 0 4px;
+    letter-spacing: 2px;
   }
 }
 
@@ -329,19 +350,34 @@
   align-items: center;
   position: relative;
   z-index: 3;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 .camp2025-trainer--left {
   margin-right: -70px;
+
+  @media (max-width: 768px) {
+    margin-right: -40px;
+  }
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .camp2025-trainer--right {
   margin-left: -70px;
-}
 
-@media (max-width: 600px) {
-  .camp2025-trainer--left,
-  .camp2025-trainer--right {
+  @media (max-width: 768px) {
+    margin-left: -40px;
+  }
+
+  @media (max-width: 600px) {
     margin-left: 0;
     margin-right: 0;
   }
@@ -361,6 +397,12 @@
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 600px) {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
+  }
 }
 
 .camp2025-trainer__btn {
@@ -379,6 +421,14 @@
   &:hover {
     background: $primary-red;
     color: $white;
+  }
+
+  @media (max-width: 600px) {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
   }
 }
 

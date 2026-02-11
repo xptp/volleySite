@@ -38,21 +38,21 @@ function HomePage() {
             ref={buttonsRef} 
             className={`content__buttons ${buttonsInView ? 'animate-in' : ''}`}
           >
-            <Link to="/coach" className="btn-menu" style={{ animationDelay: '0ms' }}>
-              <span className="btn-menu__icon">🌐</span>
-              <span className="btn-menu__text">О ТРЕНЕРЕ</span>
-              <span className="btn-menu__arrow">›</span>
-            </Link>
             <Link to="/camp2025" className="btn-menu" style={{ animationDelay: '100ms' }}>
               <span className="btn-menu__icon">🌐</span>
               <span className="btn-menu__text">СПОРТИВНЫЙ ЛАГЕРЬ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
-            <a href="/training" className="btn-menu" style={{ animationDelay: '200ms' }}>
+            <Link to="/training" className="btn-menu" style={{ animationDelay: '200ms' }}>
               <span className="btn-menu__icon">🌐</span>
               <span className="btn-menu__text">ТРЕНИРОВКИ</span>
               <span className="btn-menu__arrow">›</span>
-            </a>
+            </Link>
+            <Link to="/coach" className="btn-menu" style={{ animationDelay: '0ms' }}>
+              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__text">О ТРЕНЕРЕ</span>
+              <span className="btn-menu__arrow">›</span>
+            </Link>
           </div>
 
           <div 

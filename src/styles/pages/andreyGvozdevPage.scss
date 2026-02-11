@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../variables' as *;
 
 .andrey-page {
@@ -305,8 +306,8 @@
     border: 2px solid $primary-red;
 
     &:hover {
-      background: darken($primary-red, 8%);
-      border-color: darken($primary-red, 8%);
+      background: color.adjust($primary-red, $lightness: -8%);
+      border-color: color.adjust($primary-red, $lightness: -8%);
       color: $white;
     }
   }
@@ -378,7 +379,7 @@
   }
 
   &:hover {
-    background: lighten($black, 20%);
+    background: color.adjust($black, $lightness: 20%);
     transform: scale(1.05);
   }
 }
