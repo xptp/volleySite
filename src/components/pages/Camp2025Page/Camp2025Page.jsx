@@ -1,13 +1,31 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import useInView from '../../hooks/useInView';
+
+const GALLERY_IMAGES = [
+  'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600',
+  'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600',
+  'https://images.unsplash.com/photo-1592656094267-764a45160876?w=600',
+  'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600',
+  'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600',
+  'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600',
+];
 
 function Camp2025Page() {
   const [dates, setDates] = useState(null);
+  const [galleryScroll, setGalleryScroll] = useState(0);
+  const [galleryPaused, setGalleryPaused] = useState(false);
+  const [galleryDragging, setGalleryDragging] = useState(false);
+  const galleryTrackRef = useRef(null);
+  const galleryLoopWidthRef = useRef(0);
+  const galleryDragStart = useRef({ x: 0, offset: 0 });
+  const galleryRafRef = useRef(null);
+  const galleryLastTimeRef = useRef(null);
 
   const [heroRef, heroInView] = useInView({ threshold: 0.15 });
   const [textRef, textInView] = useInView({ threshold: 0.15 });
   const [whyRef, whyInView] = useInView({ threshold: 0.1 });
+  const [galleryRef, galleryInView] = useInView({ threshold: 0.1 });
   const [trainersRef, trainersInView] = useInView({ threshold: 0.1 });
   const [pricesRef, pricesInView] = useInView({ threshold: 0.1 });
   const [formRef, formInView] = useInView({ threshold: 0.1 });
@@ -23,6 +41,88 @@ function Camp2025Page() {
       })
       .catch(error => console.error('Ошибка:', error));
   }, []);
+
+  // Автопрокрутка галереи (медленнее) + пауза при взаимодействии
+  useEffect(() => {
+    const track = galleryTrackRef.current;
+    if (!track) return;
+
+    const tick = (now) => {
+      galleryRafRef.current = requestAnimationFrame(tick);
+      const loopWidth = track.offsetWidth / 2;
+      if (loopWidth > 0) galleryLoopWidthRef.current = loopWidth;
+      if (galleryPaused || galleryDragging || loopWidth <= 0) {
+        galleryLastTimeRef.current = now;
+        return;
+      }
+      const prev = galleryLastTimeRef.current ?? now;
+      galleryLastTimeRef.current = now;
+      const dt = (now - prev) / 1000;
+      const speed = loopWidth / 42; // полный цикл 50% за 42 сек (медленнее)
+      setGalleryScroll((s) => {
+        let next = s + speed * dt;
+        if (next >= loopWidth) next -= loopWidth;
+        if (next < 0) next += loopWidth;
+        return next;
+      });
+    };
+    galleryRafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (galleryRafRef.current) cancelAnimationFrame(galleryRafRef.current);
+    };
+  }, [galleryPaused, galleryDragging]);
+
+  const normalizeOffset = useCallback((value) => {
+    const loop = galleryLoopWidthRef.current;
+    if (loop <= 0) return 0;
+    let v = value % loop;
+    if (v < 0) v += loop;
+    return v;
+  }, []);
+
+  const onGalleryMouseDown = useCallback((e) => {
+    if (e.button !== 0) return;
+    setGalleryDragging(true);
+    galleryDragStart.current = { x: e.clientX, offset: galleryScroll };
+  }, [galleryScroll]);
+
+  const onGalleryMouseMove = useCallback((e) => {
+    if (!galleryDragging) return;
+    const { x, offset } = galleryDragStart.current;
+    const loop = galleryLoopWidthRef.current;
+    const delta = x - e.clientX;
+    setGalleryScroll(normalizeOffset(offset + delta));
+  }, [galleryDragging, normalizeOffset]);
+
+  const onGalleryMouseUp = useCallback(() => {
+    setGalleryDragging(false);
+  }, []);
+
+  useEffect(() => {
+    if (!galleryDragging) return;
+    document.addEventListener('mousemove', onGalleryMouseMove);
+    document.addEventListener('mouseup', onGalleryMouseUp);
+    return () => {
+      document.removeEventListener('mousemove', onGalleryMouseMove);
+      document.removeEventListener('mouseup', onGalleryMouseUp);
+    };
+  }, [galleryDragging, onGalleryMouseMove, onGalleryMouseUp]);
+
+  const galleryStripRef = useRef(null);
+  const onGalleryWheel = useCallback((e) => {
+    e.preventDefault();
+    setGalleryScroll((s) => normalizeOffset(s + e.deltaY));
+    setGalleryPaused(true);
+    window.clearTimeout(window._camp2025GalleryPauseTimeout);
+    window._camp2025GalleryPauseTimeout = setTimeout(() => setGalleryPaused(false), 2500);
+  }, [normalizeOffset]);
+
+  useEffect(() => {
+    const el = galleryStripRef.current;
+    if (!el) return;
+    el.addEventListener('wheel', onGalleryWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onGalleryWheel);
+  }, [onGalleryWheel]);
 
   return (
     <div className="camp2025-page">
@@ -116,6 +216,30 @@ function Camp2025Page() {
               <span className="camp2025-why__text">и конечно же, безлимитный волейбол</span>
             </li>
           </ul>
+        </section>
+
+        <section ref={galleryRef} className={`camp2025-gallery ${galleryInView ? 'animate-in' : ''}`}>
+          <h2 className="camp2025-gallery__title">Галерея</h2>
+          <p className="camp2025-gallery__lead">Тренировки, лагерь и атмосфера #STROEVTEAM</p>
+          <div
+            ref={galleryStripRef}
+            className={`camp2025-gallery__strip ${galleryDragging ? 'camp2025-gallery__strip--dragging' : ''}`}
+            onMouseDown={onGalleryMouseDown}
+            role="region"
+            aria-label="Галерея фото, можно прокручивать мышью"
+          >
+            <div
+              ref={galleryTrackRef}
+              className="camp2025-gallery__strip-track"
+              style={{ transform: `translateX(-${galleryScroll}px)` }}
+            >
+              {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((src, i) => (
+                <div className="camp2025-gallery__strip-item" key={i}>
+                  <img src={src} alt="" draggable={false} />
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section ref={trainersRef} className={`camp2025-trainers ${trainersInView ? 'animate-in' : ''}`}>
