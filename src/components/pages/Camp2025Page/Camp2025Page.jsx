@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef, useCallback } from 'react';
 import useInView from '../../hooks/useInView';
+import Camp2025DatesPrices from './Camp2025DatesPrices';
 
 const GALLERY_IMAGES = [
   'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600',
@@ -58,7 +59,7 @@ function Camp2025Page() {
       const prev = galleryLastTimeRef.current ?? now;
       galleryLastTimeRef.current = now;
       const dt = (now - prev) / 1000;
-      const speed = loopWidth / 42; // полный цикл 50% за 42 сек (медленнее)
+      const speed = loopWidth / 60; // скорость
       setGalleryScroll((s) => {
         let next = s + speed * dt;
         if (next >= loopWidth) next -= loopWidth;
@@ -242,7 +243,7 @@ function Camp2025Page() {
           </div>
         </section>
 
-        <section ref={trainersRef} className={`camp2025-trainers ${trainersInView ? 'animate-in' : ''}`}>
+        {/* <section ref={trainersRef} className={`camp2025-trainers ${trainersInView ? 'animate-in' : ''}`}>
           <div className="camp2025-trainers__row">
             <div className="camp2025-trainer camp2025-trainer--left">
               <div className="camp2025-trainer__photo">
@@ -250,45 +251,15 @@ function Camp2025Page() {
               </div>
               <a href="#" className="camp2025-trainer__btn">Альберт Строев</a>
             </div>
-            <h2 className="camp2025-trainers__title">ТРЕНЕРЫ</h2>
+            <h2 className="camp2025-trainers__title">ТРЕНЕР</h2>
             <div className="camp2025-trainer camp2025-trainer--right">
-              <div className="camp2025-trainer__photo">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Андрей Гвоздев" />
-              </div>
-              <Link to="/andrey_gvozdev" className="camp2025-trainer__btn">Андрей Гвоздев</Link>
+              
+              
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section ref={pricesRef} className={`camp2025-prices ${pricesInView ? 'animate-in' : ''}`}>
-          <h2 className="camp2025-prices__title">Даты и Цены</h2>
-          <p className="camp2025-prices__intro">
-            Си-отель проживание в номере категории «Standard» при двухместном размещении, завтраки «Шведский стол», Spa комплиментарно для гостей отеля:
-          </p>
-          <ul className="camp2025-prices__list">
-            <li>01.05-10.05 от 67.500₽ за весь период</li>
-            <li>08.06-15.06 от 52.500₽ за весь период</li>
-            <li>30.06-07.07 от 58.800₽ за весь период</li>
-            <li>03.08-11.08 от 69.600₽ за весь период</li>
-            <li>31.08-07.09 от 57.750₽ за весь период</li>
-            <li>27.10-03.11 от 41.300₽ за весь период</li>
-          </ul>
-          <p className="camp2025-prices__alt">Альтернативные варианты размещения в других отелях</p>
-          <div className="camp2025-prices__buttons">
-            <a href="#" className="camp2025-prices__btn">
-              <span className="camp2025-prices__btn-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M15 9l-6 6M9 9l6 6" /></svg>
-              </span>
-              БЕЗ ПЕРЕЛЕТА
-            </a>
-            <a href="#" className="camp2025-prices__btn">
-              <span className="camp2025-prices__btn-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" /></svg>
-              </span>
-              С ПЕРЕЛЕТОМ
-            </a>
-          </div>
-        </section>
+        <Camp2025DatesPrices sectionRef={pricesRef} animateIn={pricesInView} />
 
         <section ref={formRef} className={`camp2025-form ${formInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-form__title">

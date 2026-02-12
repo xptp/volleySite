@@ -467,18 +467,18 @@
   }
 }
 
-.camp2025-trainer--right {
-  margin-left: -70px;
+// .camp2025-trainer--right {
+//   margin-left: -70px;
 
-  @media (max-width: 768px) {
-    margin-left: -40px;
-  }
+//   @media (max-width: 768px) {
+//     margin-left: -40px;
+//   }
 
-  @media (max-width: 600px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+//   @media (max-width: 600px) {
+//     margin-left: 0;
+//     margin-right: 0;
+//   }
+// }
 
 .camp2025-trainer__photo {
   width: 182px;
@@ -549,6 +549,146 @@
   .animate-in & {
     animation: slideFromLeft 0.6s ease 0.1s forwards;
   }
+}
+
+.camp2025-prices__dates-heading {
+  font-size: 1rem;
+  color: $gray-600;
+  margin: 0 0 20px;
+  letter-spacing: 0.3px;
+  opacity: 0;
+  transform: translateX(-40px);
+
+  .animate-in & {
+    animation: slideFromLeft 0.6s ease 0.15s forwards;
+  }
+}
+
+.camp2025-prices__date-tabs {
+  list-style: none;
+  margin: 0 auto 36px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateX(-40px);
+
+  .animate-in & {
+    animation: slideFromLeft 0.6s ease 0.2s forwards;
+  }
+
+  @media (max-width: 600px) {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+}
+
+.camp2025-prices__date-tab {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: $black;
+  background: transparent;
+  border: 1.5px solid $gray-400;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $gray-700;
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  &--active {
+    background: $black;
+    color: $white;
+    border-color: $black;
+
+    &:hover {
+      background: $primary-red;
+      border-color: $primary-red;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+.camp2025-prices__detail {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: left;
+  padding-bottom: 32px;
+  border-bottom: 1px solid $gray-200;
+}
+
+.camp2025-prices__detail-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $black;
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+
+.camp2025-prices__detail-date {
+  font-size: 0.95rem;
+  color: $gray-600;
+  margin: 0 0 20px;
+}
+
+.camp2025-prices__detail-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $black;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.camp2025-prices__detail-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.5;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $black;
+    }
+  }
+}
+
+.camp2025-prices__detail-price {
+  font-size: 1.05rem;
+  color: $black;
+  margin: 0;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.camp2025-prices__hotel {
+  margin-top: 8px;
 }
 
 .camp2025-prices__intro {
