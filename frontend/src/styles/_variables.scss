@@ -1,0 +1,54 @@
+// ===== COLORS =====
+$primary: #007bff;
+$primary-red: #e53935;
+$secondary: #6c757d;
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #17a2b8;
+
+$white: #fff;
+$black: #0a0a0a;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$text-color: #333;
+$bg-color: #fff;
+
+// ===== TYPOGRAPHY =====
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-size-base: 19px; // ~19% больше для читаемости (было 16px)
+
+// ===== SPACING =====
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+// ===== LAYOUT =====
+$container-max: 1600px;
+
+// ===== BORDERS =====
+$border-radius: 8px;
+
+// ===== SHADOWS =====
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+// ===== TRANSITIONS =====
+$transition: 0.3s ease;
+
+// ===== BREAKPOINTS =====
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
