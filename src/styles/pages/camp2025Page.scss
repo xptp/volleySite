@@ -350,7 +350,7 @@
 .camp2025-gallery__strip-item {
   flex-shrink: 0;
   width: 460px;
-  height: 300px;
+  height: 500px;
   border-radius: 8px;
   overflow: hidden;
 
@@ -362,12 +362,12 @@
 
   @media (max-width: 768px) {
     width: 380px;
-    height: 250px;
+    height: 450px;
   }
 
   @media (max-width: 600px) {
     width: 300px;
-    height: 200px;
+    height: 380px;
     border-radius: 6px;
   }
 }
@@ -839,6 +839,26 @@
 
   .animate-in & {
     animation: slideFromLeft 0.6s ease 0.2s forwards;
+  }
+}
+
+.camp2025-form__message {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-40px);
+
+  .animate-in & {
+    animation: slideFromLeft 0.6s ease 0.25s forwards;
+  }
+
+  &--success {
+    color: #28a745;
+  }
+
+  &--error {
+    color: #e53935;
   }
 }
 

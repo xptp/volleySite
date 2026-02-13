@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import useInView from '../../hooks/useInView'
 
-const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=800'
+const PLACEHOLDER_IMG = ''
 const PLACEHOLDER_SQUARE = 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400'
 
 function CoachPage() {

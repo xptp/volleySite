@@ -21,7 +21,11 @@ const CAMP_PERIODS = [
     hotel: {
       intro: 'Си-отель: проживание в номере категории «Standard» при двухместном размещении, завтраки «Шведский стол», Spa комплиментарно для гостей отеля:',
       datesList: [
-        { text: '28.03-05.04', price: 'от 38.000₽ за спортпакет' },
+        { text: '28.03-05.04 - 28.03-05.04', price: ' от 50000р' },
+        { text: '28.03-05.04', price: '- 28.03-05.04 от 50000р' },
+        { text: '28.03-05.04', price: '- 28.03-05.04 от 50000р' },
+        { text: '28.03-05.04', price: '- 28.03-05.04 от 50000р' },
+        { text: '28.03-05.04', price: '- 28.03-05.04 от 50000р' },
       ],
       alt: 'Альтернативные варианты размещения в других отелях',
       showButtons: true,
@@ -148,8 +152,8 @@ function Camp2025DatesPrices({ sectionRef, animateIn }) {
             <li key={i}>{item.text} {item.price}</li>
           ))}
         </ul>
-        <p className="camp2025-prices__alt">{period.hotel.alt}</p>
-        {period.hotel.showButtons && (
+        {/* <p className="camp2025-prices__alt">{period.hotel.alt}</p> */}
+        {/* {period.hotel.showButtons && (
           <div className="camp2025-prices__buttons">
             <a href="#" className="camp2025-prices__btn">
               <span className="camp2025-prices__btn-icon" aria-hidden="true">
@@ -164,7 +168,7 @@ function Camp2025DatesPrices({ sectionRef, animateIn }) {
               С ПЕРЕЛЕТОМ
             </a>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   )

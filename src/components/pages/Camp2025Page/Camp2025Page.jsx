@@ -3,13 +3,31 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import useInView from '../../hooks/useInView';
 import Camp2025DatesPrices from './Camp2025DatesPrices';
 
+const TELEGRAM_BOT_TOKEN = '8003451463:AAFMXrYIf8ys88A9Yk_Vv3MdTp0KWijZvqk'
+const TELEGRAM_CHAT_ID = '1312223574'
+
 const GALLERY_IMAGES = [
-  'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600',
-  'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600',
-  'https://images.unsplash.com/photo-1592656094267-764a45160876?w=600',
-  'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600',
-  'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600',
-  'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600',
+  'images/gallery/1.webp?w=600',
+  'images/gallery/2.webp?w=600',
+  'images/gallery/3.webp?w=600',
+  'images/gallery/4.webp?w=600',
+  'images/gallery/5.webp?w=600',
+  'images/gallery/6.webp?w=600',
+  'images/gallery/7.webp?w=600',
+  'images/gallery/8.webp?w=600',
+  'images/gallery/9.webp?w=600',
+  'images/gallery/10.webp?w=600',
+  'images/gallery/11.webp?w=600',
+  'images/gallery/12.webp?w=600',
+  'images/gallery/13.webp?w=600',
+  'images/gallery/14.webp?w=600',
+  'images/gallery/15.webp?w=600',
+  'images/gallery/16.webp?w=600',
+  'images/gallery/17.webp?w=600',
+  'images/gallery/18.webp?w=600',
+  'images/gallery/19.webp?w=600',
+  'images/gallery/20.webp?w=600',
+  'images/gallery/21.webp?w=600',
 ];
 
 function Camp2025Page() {
@@ -31,6 +49,35 @@ function Camp2025Page() {
   const [pricesRef, pricesInView] = useInView({ threshold: 0.1 });
   const [formRef, formInView] = useInView({ threshold: 0.1 });
   const [contactsRef, contactsInView] = useInView({ threshold: 0.2 });
+
+  const [campName, setCampName] = useState('');
+  const [campPhone, setCampPhone] = useState('');
+  const [campFormStatus, setCampFormStatus] = useState('idle'); // idle | sending | success | error
+
+  const sendCampToTelegram = useCallback(async (userName, phoneNumber) => {
+    const text = `📞 Заявка на звонок! Имя: ${userName}, Телефон: ${phoneNumber}`
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
+    })
+    if (!res.ok) throw new Error('Send failed')
+  }, [])
+
+  const handleCampFormSubmit = useCallback(async (e) => {
+    e.preventDefault()
+    const trimmedPhone = campPhone.trim()
+    const trimmedName = campName.trim()
+    if (!trimmedPhone) return
+    setCampFormStatus('sending')
+    try {
+      await sendCampToTelegram(trimmedName || '—', trimmedPhone)
+      setCampFormStatus('success')
+    } catch {
+      setCampFormStatus('error')
+    }
+  }, [campName, campPhone, sendCampToTelegram])
 
   useEffect(() => {
     fetch('https://opensheet.elk.sh/1r1hqt-xqusneIrpnjt-DcW4sRlkpEbg8F__7fv4zsKg/Лист1')
@@ -59,7 +106,7 @@ function Camp2025Page() {
       const prev = galleryLastTimeRef.current ?? now;
       galleryLastTimeRef.current = now;
       const dt = (now - prev) / 1000;
-      const speed = loopWidth / 60; // скорость
+      const speed = loopWidth / 150; // скорость
       setGalleryScroll((s) => {
         let next = s + speed * dt;
         if (next >= loopWidth) next -= loopWidth;
@@ -128,7 +175,7 @@ function Camp2025Page() {
   return (
     <div className="camp2025-page">
       {/* Фон приклеен; надписи и кнопки в отдельном блоке — прокручиваются вверх */}
-      <div className="camp2025-hero" aria-hidden="true" />
+      {/* <div className="camp2025-hero" aria-hidden="true" />
       <div ref={heroRef} className={`camp2025-hero-content ${heroInView ? 'animate-in' : ''}`}>
         <h1 className="camp2025-hero-content__title">
           МАЙСКИЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА
@@ -142,11 +189,11 @@ function Camp2025Page() {
             Подробнее
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* Контент наезжает на картинку при прокрутке */}
       <main className="camp2025-content">
-        <section ref={textRef} className={`camp2025-text ${textInView ? 'animate-in' : ''}`}>
+        {/* <section ref={textRef} className={`camp2025-text ${textInView ? 'animate-in' : ''}`}>
           <p>Хотите улучшить свои навыки в пляжном волейболе?</p>
           <p>Не ищите никого, кроме меня!</p>
           <p>
@@ -155,10 +202,10 @@ function Camp2025Page() {
           <p>
             Не важно, являетесь ли вы новичком, желающим изучить основы, или опытным игроком, желающим отточить свои навыки, я помогу вам полностью раскрыть свой потенциал на песке.
           </p>
-        </section>
+        </section> */}
 
         <section ref={whyRef} className={`camp2025-why ${whyInView ? 'animate-in' : ''}`}>
-          <h2 className="camp2025-why__title">Почему кемп #STROEVTEAM?</h2>
+          <h2 className="camp2025-why__title">ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА</h2>
           <p className="camp2025-why__subtitle">Что вас ждет?</p>
           <ul className="camp2025-why__grid">
             <li className="camp2025-why__item">
@@ -266,23 +313,43 @@ function Camp2025Page() {
             ЗАПИСЫВАЙТЕСЬ В ТРЕНИРОВОЧНЫЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА НА БАЗЕ «СИ-ОТЕЛЬ» 2025
           </h2>
           <p className="camp2025-form__subtitle">Заполните форму ниже.</p>
-          <form className="camp2025-form__form" onSubmit={(e) => e.preventDefault()}>
+          {campFormStatus === 'success' && (
+            <p className="camp2025-form__message camp2025-form__message--success">Заявка отправлена!</p>
+          )}
+          {campFormStatus === 'error' && (
+            <p className="camp2025-form__message camp2025-form__message--error">Ошибка, попробуйте позже</p>
+          )}
+          <form className="camp2025-form__form" onSubmit={handleCampFormSubmit}>
             <label className="camp2025-form__field">
               <span className="camp2025-form__label">Имя</span>
-              <input type="text" name="name" placeholder="Ваше имя" className="camp2025-form__input" />
-            </label>
-            <label className="camp2025-form__field">
-              <span className="camp2025-form__label">Почта</span>
-              <input type="email" name="email" placeholder="example@mail.ru" className="camp2025-form__input" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                className="camp2025-form__input"
+                value={campName}
+                onChange={(e) => setCampName(e.target.value)}
+                disabled={campFormStatus === 'sending'}
+              />
             </label>
             <label className="camp2025-form__field">
               <span className="camp2025-form__label">Телефон</span>
               <span className="camp2025-form__phone-wrap">
                 <span className="camp2025-form__phone-prefix" aria-hidden="true">🇷🇺</span>
-                <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" className="camp2025-form__input" />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+7 (000) 000-00-00"
+                  className="camp2025-form__input"
+                  value={campPhone}
+                  onChange={(e) => setCampPhone(e.target.value)}
+                  disabled={campFormStatus === 'sending'}
+                />
               </span>
             </label>
-            <button type="submit" className="camp2025-form__submit">Подтвердить</button>
+            <button type="submit" className="camp2025-form__submit" disabled={campFormStatus === 'sending'}>
+              {campFormStatus === 'sending' ? 'Отправка...' : 'Подтвердить'}
+            </button>
           </form>
           <p className="camp2025-form__notice">В ближайшее время после подачи заявки, с вами свяжется менеджер.</p>
         </section>

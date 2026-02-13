@@ -73,6 +73,11 @@ function HomePage() {
               <span className="btn-menu__text">О ТРЕНЕРЕ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
+            <Link to="/" className="btn-menu" style={{ animationDelay: '0ms' }}>
+              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__text">НАШ МЕРЧ</span>
+              <span className="btn-menu__arrow">›</span>
+            </Link>
           </div>
 
           <div

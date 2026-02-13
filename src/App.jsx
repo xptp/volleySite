@@ -4,6 +4,7 @@ import HomePage from './components/pages/HomePage'
 import TrainingPage from './components/pages/TrainingPage'
 import CoachPage from './components/pages/CoachPage'
 import Camp2025Page from './components/pages/Camp2025Page'
+import CallbackButton from './components/CallbackButton/CallbackButton'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -26,6 +27,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
+      <CallbackButton />
     </Router>
   )
 }
