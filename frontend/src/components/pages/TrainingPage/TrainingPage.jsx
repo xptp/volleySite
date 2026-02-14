@@ -40,7 +40,7 @@ function TrainingPage() {
     <div className="training-page">
       {/* Logo */}
       <div className="training-page__logo">
-        <img src="/images/logo1.svg" alt="Stroev Team" />
+        <img src="/images/logo1.svg" alt="Stroev Team" fetchPriority="high" decoding="async" />
       </div>
 
       {/* Title */}
@@ -62,7 +62,13 @@ function TrainingPage() {
             style={{ animationDelay: `${index * 150}ms` }}
           >
             <div className="training-card__image">
-              <img src={training.image} alt={training.title} />
+              <img
+                src={training.image}
+                alt={training.title}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchPriority={index === 0 ? 'high' : undefined}
+                decoding="async"
+              />
             </div>
             <h3 className="training-card__title">{training.title}</h3>
             <div className="training-card__details">

@@ -5,6 +5,8 @@ import TrainingPage from './components/pages/TrainingPage'
 import CoachPage from './components/pages/CoachPage'
 import Camp2025Page from './components/pages/Camp2025Page'
 import CallbackButton from './components/CallbackButton/CallbackButton'
+import Seo from './components/Seo/Seo'
+import { usePrefetchListener } from './hooks/usePrefetchImages'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -15,8 +17,10 @@ function ScrollToTop() {
 }
 
 function App() {
+  usePrefetchListener()
   return (
     <Router>
+      <Seo />
       <ScrollToTop />
       <div className="App">
         <Routes>

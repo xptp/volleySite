@@ -627,13 +627,24 @@ $dapsimi-to: #99396b;
     overflow: hidden;
     border-radius: $border-radius;
     margin: 0 -24px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &--dragging {
+      cursor: grabbing;
+    }
   }
 
   &__strip-track {
     display: flex;
     gap: 20px;
-    animation: stripScroll 25s linear infinite;
     width: max-content;
+    will-change: transform;
   }
 
   &__strip-item {
@@ -653,15 +664,6 @@ $dapsimi-to: #99396b;
       width: 340px;
       height: 180px;
     }
-  }
-}
-
-@keyframes stripScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
 

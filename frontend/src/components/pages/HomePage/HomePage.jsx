@@ -46,15 +46,16 @@ function HomePage() {
       {/* Content Section - наезжает на hero */}
       <section className="content">
         <div className="content__inner">
-          <p className="content__description">
+          <div className="content__description">
             <h3 className="highlight">ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА</h3>
-            <br />
-            Главный тренер <span className="highlight"> Альберт Строев</span> многократный <span className="highlight">Чемпион России</span>.
-            <br />
-            тут добавить что-то про лагерь
-            <br />
-            желательно что-то уникальное
-          </p>
+            <p>
+              Главный тренер <span className="highlight"> Альберт Строев</span> многократный <span className="highlight">Чемпион России</span>.
+              <br />
+              тут добавить что-то про лагерь
+              <br />
+              желательно что-то уникальное
+            </p>
+          </div>
 
           <div 
             ref={buttonsRef} 

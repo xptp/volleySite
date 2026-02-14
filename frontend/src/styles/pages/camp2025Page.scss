@@ -360,6 +360,7 @@
   margin: 0 -24px;
   cursor: grab;
   user-select: none;
+  touch-action: none;
 
   &:active {
     cursor: grabbing;

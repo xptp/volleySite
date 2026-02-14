@@ -55,6 +55,7 @@ function Camp2025Page() {
   const galleryTrackRef = useRef(null);
   const galleryLoopWidthRef = useRef(0);
   const galleryDragStart = useRef({ x: 0, offset: 0 });
+  const galleryDraggingRef = useRef(false);
   const galleryRafRef = useRef(null);
   const galleryLastTimeRef = useRef(null);
 
@@ -203,8 +204,15 @@ function Camp2025Page() {
 
   const onGalleryMouseDown = useCallback((e) => {
     if (e.button !== 0) return;
+    galleryDraggingRef.current = true;
     setGalleryDragging(true);
     galleryDragStart.current = { x: e.clientX, offset: galleryScroll };
+  }, [galleryScroll]);
+
+  const onGalleryTouchStart = useCallback((e) => {
+    galleryDraggingRef.current = true;
+    setGalleryDragging(true);
+    galleryDragStart.current = { x: e.touches[0].clientX, offset: galleryScroll };
   }, [galleryScroll]);
 
   const onGalleryMouseMove = useCallback((e) => {
@@ -216,6 +224,12 @@ function Camp2025Page() {
   }, [galleryDragging, normalizeOffset]);
 
   const onGalleryMouseUp = useCallback(() => {
+    galleryDraggingRef.current = false;
+    setGalleryDragging(false);
+  }, []);
+
+  const onGalleryTouchEnd = useCallback(() => {
+    galleryDraggingRef.current = false;
     setGalleryDragging(false);
   }, []);
 
@@ -244,6 +258,21 @@ function Camp2025Page() {
     el.addEventListener('wheel', onGalleryWheel, { passive: false });
     return () => el.removeEventListener('wheel', onGalleryWheel);
   }, [onGalleryWheel]);
+
+  const handleTouchMove = useCallback((e) => {
+    if (!galleryDraggingRef.current) return;
+    e.preventDefault();
+    const { x, offset } = galleryDragStart.current;
+    const delta = x - e.touches[0].clientX;
+    setGalleryScroll(normalizeOffset(offset + delta));
+  }, [normalizeOffset]);
+
+  useEffect(() => {
+    const el = galleryStripRef.current;
+    if (!el) return;
+    el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => el.removeEventListener('touchmove', handleTouchMove);
+  }, [handleTouchMove]);
 
   return (
     <div className="camp2025-page">
@@ -361,8 +390,11 @@ function Camp2025Page() {
             ref={galleryStripRef}
             className={`camp2025-gallery__strip ${galleryDragging ? 'camp2025-gallery__strip--dragging' : ''}`}
             onMouseDown={onGalleryMouseDown}
+            onTouchStart={onGalleryTouchStart}
+            onTouchEnd={onGalleryTouchEnd}
+            onTouchCancel={onGalleryTouchEnd}
             role="region"
-            aria-label="Галерея фото, можно прокручивать мышью"
+            aria-label="Галерея фото, можно прокручивать пальцем или мышью"
           >
             <div
               ref={galleryTrackRef}
@@ -371,7 +403,7 @@ function Camp2025Page() {
             >
               {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((src, i) => (
                 <div className="camp2025-gallery__strip-item" key={i}>
-                  <img src={src} alt="" draggable={false} />
+                  <img src={src} alt="" draggable={false} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
