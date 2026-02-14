@@ -72,10 +72,11 @@ function Camp2025Page() {
 
   const mapContainerRef = useRef(null)
 
-  // Якорь: при переходе на /camp2025#map прокрутить к карте
+  // Якорь: при переходе на /camp2025#map или #form прокрутить к блоку
   useEffect(() => {
-    if (window.location.hash !== '#map') return
-    const el = document.getElementById('map')
+    const hash = window.location.hash
+    if (hash !== '#map' && hash !== '#form') return
+    const el = document.getElementById(hash.slice(1))
     if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100)
   }, [])
 
@@ -428,6 +429,7 @@ function Camp2025Page() {
           </a>
         </section>
 
+        <span id='form'></span>
         <section ref={formRef} className={`camp2025-form ${formInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-form__title">
             ЗАПИСЫВАЙТЕСЬ В ТРЕНИРОВОЧНЫЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА НА БАЗЕ «СИ-ОТЕЛЬ» 2025
@@ -439,7 +441,7 @@ function Camp2025Page() {
           {campFormStatus === 'error' && (
             <p className="camp2025-form__message camp2025-form__message--error">Ошибка, попробуйте позже</p>
           )}
-          <form className="camp2025-form__form" id='form' onSubmit={handleCampFormSubmit}>
+          <form className="camp2025-form__form"  onSubmit={handleCampFormSubmit}>
             <label className={`camp2025-form__field ${campNameError ? 'camp2025-form__field--error' : ''}`}>
               <span className="camp2025-form__label">Имя <span className="camp2025-form__required">*</span></span>
               <input

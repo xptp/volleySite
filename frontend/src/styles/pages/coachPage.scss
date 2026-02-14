@@ -383,7 +383,7 @@ $dapsimi-to: #99396b;
     max-width: 1060px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left; // блок по центру страницы, но текст — по левому краю, без «лесенки»
+    text-align: left; 
 
     @media (max-width: 480px) {
       padding: 0 4px;
@@ -400,7 +400,8 @@ $dapsimi-to: #99396b;
 
     p {
       margin: 0 0 1em;
-
+      
+      
       &:last-child {
         margin-bottom: 0;
       }
@@ -422,6 +423,7 @@ $dapsimi-to: #99396b;
   text-align: center;
   opacity: 0;
   transform: translateX(-36px);
+  
 
   &__icon {
     font-size: 2rem;
@@ -441,6 +443,7 @@ $dapsimi-to: #99396b;
     font-weight: 700;
     color: $black;
     margin-bottom: 6px;
+    
     letter-spacing: $ls-tight;
 
     @media (max-width: $breakpoint-md) {
@@ -491,8 +494,12 @@ $dapsimi-to: #99396b;
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+      // background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('images/boll.webp') 0% center / cover no-repeat;
     }
+    
 
     img {
       width: 100%;
@@ -527,6 +534,7 @@ $dapsimi-to: #99396b;
     letter-spacing: 3px;
     line-height: 1.25;
     text-transform: uppercase;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
   }
 
   &__body {
@@ -537,7 +545,7 @@ $dapsimi-to: #99396b;
 
     p {
       margin: 0 0 1em;
-
+      text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
       &:last-child {
         margin-bottom: 0;
       }

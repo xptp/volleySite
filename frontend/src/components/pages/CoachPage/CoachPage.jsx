@@ -193,7 +193,7 @@ function CoachPage() {
               <cite className="coach-quote__cite">Альберт Строев</cite>
             </blockquote>
             <div className="coach-quote__action">
-              <Link to="/training" className="btn-coach-start">НАЧАТЬ</Link>
+              <Link to="/camp2025#form" className="btn-coach-start">НАЧАТЬ</Link>
             </div>
           </div>
         </section>
