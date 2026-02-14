@@ -49,7 +49,6 @@ const GALLERY_IMAGES = [
 ];
 
 function Camp2025Page() {
-  const [dates, setDates] = useState(null);
   const [galleryScroll, setGalleryScroll] = useState(0);
   const [galleryPaused, setGalleryPaused] = useState(false);
   const [galleryDragging, setGalleryDragging] = useState(false);
@@ -72,7 +71,7 @@ function Camp2025Page() {
 
   const mapContainerRef = useRef(null)
 
-  // Якорь: при переходе на /camp2025#map или #form прокрутить к блоку
+ 
   useEffect(() => {
     const hash = window.location.hash
     if (hash !== '#map' && hash !== '#form') return
@@ -163,17 +162,6 @@ function Camp2025Page() {
       setCampFormStatus('error')
     }
   }, [campName, campPhone, sendCampToTelegram])
-
-  useEffect(() => {
-    fetch('https://opensheet.elk.sh/1r1hqt-xqusneIrpnjt-DcW4sRlkpEbg8F__7fv4zsKg/Лист1')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          setDates(data[0]);
-        }
-      })
-      .catch(error => console.error('Ошибка:', error));
-  }, []);
 
   // Автопрокрутка галереи (медленнее) + пауза при взаимодействии
   useEffect(() => {
