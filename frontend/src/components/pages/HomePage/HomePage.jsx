@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Tent, Dumbbell, UserCircle, MapPin } from 'lucide-react'
 import useInView from '../../hooks/useInView'
 import Social from '../../social'
 
@@ -62,17 +63,17 @@ function HomePage() {
             className={`content__buttons ${buttonsInView ? 'animate-in' : ''}`}
           >
             <Link to="/camp2025" className="btn-menu" style={{ animationDelay: '100ms' }}>
-              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__icon"><Tent size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">СПОРТИВНЫЙ ЛАГЕРЬ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
             <Link to="/training" className="btn-menu" style={{ animationDelay: '200ms' }}>
-              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__icon"><Dumbbell size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">ТРЕНИРОВКИ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
             <Link to="/coach" className="btn-menu" style={{ animationDelay: '0ms' }}>
-              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__icon"><UserCircle size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">О ТРЕНЕРЕ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>
@@ -82,7 +83,7 @@ function HomePage() {
               <span className="btn-menu__arrow">›</span>
             </Link> */}
             <Link to="/camp2025#map" className="btn-menu" style={{ animationDelay: '300ms' }}>
-              <span className="btn-menu__icon">🌐</span>
+              <span className="btn-menu__icon"><MapPin size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">КАК НАС НАЙТИ</span>
               <span className="btn-menu__arrow">›</span>
             </Link>

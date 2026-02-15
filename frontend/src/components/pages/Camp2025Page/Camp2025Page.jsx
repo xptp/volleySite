@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect, useRef, useCallback } from 'react';
-import useInView from '../../hooks/useInView';
-import Camp2025DatesPrices from './Camp2025DatesPrices';
-import Social from '../../social';
+import { useState, useEffect, useRef, useCallback } from 'react'
+import {
+  Trophy,
+  SlidersHorizontal,
+  Shirt,
+  Gift,
+  Brain,
+  Users,
+  Waves,
+  Hotel,
+  Infinity,
+} from 'lucide-react'
+import useInView from '../../hooks/useInView'
+import Camp2025DatesPrices from './Camp2025DatesPrices'
+import Social from '../../social'
 
 const API_BASE = import.meta.env.VITE_API_URL || ''
 
@@ -327,56 +338,56 @@ function Camp2025Page() {
           <ul className="camp2025-why__grid">
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 9v12M15 9v12" /></svg>
+                <Trophy size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">10 уникальных тренировок и 2 турнира</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 17v-4h4v4H3zM3 12V8h4v4H3zM8 17v-4h4v4H8zM8 12V8h4v4H8zM13 17v-4h4v4h-4zM13 12V8h4v4h-4z" /></svg>
+                <SlidersHorizontal size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">группы разных уровней подготовки (light/medium/hard)</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 2L4 6v14a2 2 0 002 2h12a2 2 0 002-2V6l-2-4H6zM6 6h12" /><path d="M8 10v6M12 10v6M16 10v6" /></svg>
+                <Shirt size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">кастомный мерч для каждого участника</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="8" r="5" /><path d="M12 13v8M9 18h6" /></svg>
+                <Gift size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">уникальные награды и подарки для участников</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 5a3 3 0 100 6 3 3 0 000-6zM6 19c0-2 2-4 6-4s6 2 6 4M3 12h2M19 12h2M12 3v2M12 19v2" /></svg>
+                <Brain size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">в лагере будем развивать не только физические навыки, но и ментальные</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="9" cy="7" r="2.5" /><circle cx="15" cy="7" r="2.5" /><path d="M6 18c0-2 2-3 6-3s6 1 6 3M12 14v4" /></svg>
+                <Users size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">так же, новые знакомства</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2C8 2 5 6 5 10c0 4 3 8 7 12 4-4 7-8 7-12 0-4-3-8-7-8z" /><path d="M12 10a2 2 0 100-4 2 2 0 000 4z" /></svg>
+                <Waves size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">в нашем распоряжении лучшие корты страны на первой береговой линии</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon camp2025-why__icon--percent" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10" /></svg>
+                <Hotel size={28} strokeWidth={1.5} />
                 <span className="camp2025-why__icon-label">100%</span>
               </span>
               <span className="camp2025-why__text">при размещение в си-отеле, восстановление в spa и потрясающие завтраки</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="9" /><path d="M8 12h8M12 8v8" /></svg>
+                <Infinity size={28} strokeWidth={1.5} />
               </span>
               <span className="camp2025-why__text">и конечно же, безлимитный волейбол</span>
             </li>
