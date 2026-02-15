@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
-const SITE_URL = ''
+const SITE_URL = 'https://beachvolleypro.ru/'
 
 const SEO_CONFIG = {
   '/': {

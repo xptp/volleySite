@@ -154,6 +154,8 @@ function Camp2025DatesPrices({ sectionRef, animateIn }) {
             <li key={i}>{item.text} {item.price}</li>
           ))}
         </ul>
+        {/* //тест */}
+        {/* <p className="camp2025-prices__intro">{period.hotel.intro}</p>  */} 
         {/* <p className="camp2025-prices__alt">{period.hotel.alt}</p> */}
         {/* {period.hotel.showButtons && (
           <div className="camp2025-prices__buttons">
