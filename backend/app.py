@@ -1,7 +1,4 @@
-"""
-Простой backend для отправки заявок в Telegram-бота.
-Данные бота берутся из переменных окружения (.env на сервере).
-"""
+
 import os
 import requests
 from flask import Flask, request, jsonify
