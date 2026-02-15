@@ -346,50 +346,50 @@ function Camp2025Page() {
               <span className="camp2025-why__icon" aria-hidden="true">
                 <SlidersHorizontal size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">группы разных уровней подготовки (light/medium/hard)</span>
+              <span className="camp2025-why__text">Группы разных уровней подготовки (light/medium/hard)</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Shirt size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">кастомный мерч для каждого участника</span>
+              <span className="camp2025-why__text">Кастомный мерч для каждого участника</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Gift size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">уникальные награды и подарки для участников</span>
+              <span className="camp2025-why__text">Уникальные награды и подарки для участников</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Brain size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">в лагере будем развивать не только физические навыки, но и ментальные</span>
+              <span className="camp2025-why__text">В лагере будем развивать не только физические навыки, но и ментальные</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Users size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">так же, новые знакомства</span>
+              <span className="camp2025-why__text">Новые знакомства</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Waves size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">в нашем распоряжении лучшие корты страны на первой береговой линии</span>
+              <span className="camp2025-why__text">В нашем распоряжении лучшие корты страны на первой береговой линии</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon camp2025-why__icon--percent" aria-hidden="true">
                 <Hotel size={28} strokeWidth={1.5} />
                 <span className="camp2025-why__icon-label">100%</span>
               </span>
-              <span className="camp2025-why__text">при размещение в си-отеле, восстановление в spa и потрясающие завтраки</span>
+              <span className="camp2025-why__text">При размещение в си-отеле, восстановление в spa и потрясающие завтраки</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Infinity size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">и конечно же, безлимитный волейбол</span>
+              <span className="camp2025-why__text">И конечно же, безлимитный волейбол</span>
             </li>
           </ul>
         </section>
