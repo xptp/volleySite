@@ -136,7 +136,7 @@ function CallbackButton() {
                   <input
                     type="tel"
                     className="callback-modal__input"
-                    placeholder="+7 (000) 000-00-00 *"
+                    placeholder="+7 (900) 000-00-00 *"
                     value={phone}
                     onChange={handlePhoneChange}
                     disabled={status === 'sending'}
@@ -158,7 +158,7 @@ function CallbackButton() {
             )}
 
             <p className="callback-modal__or">ИЛИ ПОЗВОНИТЕ САМИ!</p>
-            <a href="tel:+79885644810" className="callback-modal__phone">+7 988 564 48 10</a>
+            <a href="tel:+79885644810" className="callback-modal__phone">+7 (964)1-22-33-44</a>
           </div>
         </div>
       )}
