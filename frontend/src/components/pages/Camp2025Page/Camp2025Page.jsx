@@ -440,16 +440,16 @@ function Camp2025Page() {
         <Camp2025DatesPrices sectionRef={pricesRef} animateIn={pricesInView} />
 
         <section ref={aboutRef} className={`camp2025-about ${aboutInView ? 'animate-in' : ''}`}>
-          <h2 className="camp2025-about__title">ПОДРОБНЕЕ О ПУТЕШЕСТВИИ</h2>
+          <h2 className="camp2025-about__title">ВОЛЕЙБОЛЬНОЕ ПУТЕШЕСТВИЕ</h2>
+          <p className="camp2025-about__tour-subtitle">Тур по Эгейскому побережью на яхте</p>
           <p className="camp2025-about__subtitle">Волейбол, яхта и побережье Турции</p>
-          <div className="camp2025-about__content">
-            <p className="camp2025-about__text">
-              Здесь будет описание маршрута, программа по дням и детали путешествия.
-            </p>
-            <p className="camp2025-about__text">
-              Заглушка: расписание, что входит в тур, что взять с собой, контакты организаторов.
-            </p>
-          </div>
+          <ul className="camp2025-about__route">
+            <li>о. Гемилер</li>
+            <li>Калкан</li>
+            <li>Каш</li>
+            <li>Долина бабок (Олюдениз)</li>
+            <li>Бухта Капи-Крик</li>
+          </ul>
           <a
             href={`/pdf/${encodeURIComponent('Путешествие 30.05.2026 - 06.06.2026.pdf')}`}
             target="_blank"
