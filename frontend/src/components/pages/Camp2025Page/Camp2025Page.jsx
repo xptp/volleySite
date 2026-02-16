@@ -340,7 +340,7 @@ function Camp2025Page() {
               <span className="camp2025-why__icon" aria-hidden="true">
                 <Trophy size={28} strokeWidth={1.5} />
               </span>
-              <span className="camp2025-why__text">10 уникальных тренировок и 2 турнира</span>
+              <span className="camp2025-why__text">10 уникальных тренировок</span>
             </li>
             <li className="camp2025-why__item">
               <span className="camp2025-why__icon" aria-hidden="true">
@@ -463,7 +463,7 @@ function Camp2025Page() {
         <span id='form'></span>
         <section ref={formRef} className={`camp2025-form ${formInView ? 'animate-in' : ''}`}>
           <h2 className="camp2025-form__title">
-            ЗАПИСЫВАЙТЕСЬ В ТРЕНИРОВОЧНЫЙ ЛАГЕРЬ ПЛЯЖНОГО ВОЛЕЙБОЛА НА БАЗЕ «СИ-ОТЕЛЬ» 2025
+            ЗАПИСЫВАЙТЕСЬ В ТРЕНИРОВОЧНЫЙ ЛАГЕРЬ STROEVTEAM
           </h2>
           <p className="camp2025-form__subtitle">Заполните форму ниже.</p>
           {campFormStatus === 'success' && (

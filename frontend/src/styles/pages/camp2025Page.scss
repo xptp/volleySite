@@ -779,6 +779,28 @@
       background: $black;
     }
   }
+
+  &--options {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-left: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $black;
+        margin-top: 6px;
+      }
+    }
+  }
 }
 
 .camp2025-prices__alt {

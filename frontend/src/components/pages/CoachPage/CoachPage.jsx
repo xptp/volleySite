@@ -271,7 +271,7 @@ function CoachPage() {
           <div className="coach-section__inner">
             <h2 className="coach-section__title">СПОРТИВНЫЙ КЛУБ</h2>
             <p className="coach-gallery-block__lead">
-              Тренировки проходят в комфортных залах и на открытых площадках. Работаем над техникой,
+              Тренировки проходят на открытых площадках. Работаем над техникой,
               тактикой и физической подготовкой.
             </p>
             <div className="coach-gallery-block__grid">

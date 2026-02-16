@@ -50,6 +50,15 @@
     }
   }
 
+  &__notice {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    letter-spacing: 0.3px;
+  }
+
   &__actions {
     margin-bottom: 50px;
   }
