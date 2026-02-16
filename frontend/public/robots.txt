@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beachvolleypro.ru/sitemap.xml
