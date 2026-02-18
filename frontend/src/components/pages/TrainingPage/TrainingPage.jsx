@@ -52,19 +52,16 @@ function TrainingPage() {
 
   return (
     <div className="training-page">
-      {/* Logo */}
       <div className="training-page__logo">
         <img src="/images/logo1.svg" alt="Stroev Team" fetchPriority="high" decoding="async" />
       </div>
 
-      {/* Title */}
       <h1 className="training-page__title">
         Хочешь научиться играть в волейбол?
         <br />
         Я тебя научу!
       </h1>
 
-      {/* Training Cards */}
       <div 
         ref={cardsRef}
         className={`training-page__cards ${cardsInView ? 'animate-in' : ''}`}
@@ -98,12 +95,10 @@ function TrainingPage() {
         *ОТМЕНА УЧАСТИЯ, МЕНЕЕ ЧЕМ ЗА 4 ЧАСА ➡ ШТРАФ РАВНЫЙ СТОИМОСТИ УЧАСТИЯ В ТРЕНИРОВКЕ.*
       </p>
 
-      {/* Gallery Button */}
       {/* <div className="training-page__actions">
       <Link to="/" className="btn-outline">ГЛАВНАЯ</Link>
       </div> */}
 
-      {/* CTA Section */}
       <div 
         ref={contactsRef}
         className={`training-page__cta ${contactsInView ? 'animate-in' : ''}`}
@@ -117,7 +112,6 @@ function TrainingPage() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="training-page__footer">
         <Link to="/" className="btn-outline">ГЛАВНАЯ</Link>
       </footer>

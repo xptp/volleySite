@@ -162,12 +162,10 @@ function CoachPage() {
 
   return (
     <div className="coach-page">
-      {/* Hero — полноэкранное фото; внизу виден кусок белого блока с логотипом и именем */}
       <section className="coach-hero">
         <div className="coach-hero__divider" />
       </section>
 
-      {/* Белый блок заходит на hero — при открытии видно логотип и имя, при прокрутке остальное */}
       <main className="coach-content">
         <div ref={introRef} className={`coach-intro ${introInView ? 'animate-in' : ''}`}>
           <div className="coach-intro__logo-wrap">
@@ -176,7 +174,6 @@ function CoachPage() {
           <h1 className="coach-intro__name">Строев Альберт</h1>
           <p className="coach-intro__role">тренер по пляжному волейболу</p>
 
-          {/* Дапсими: бесшовная бесконечная анимация — два идентичных блока в track, сдвиг на 50% */}
           <div className="coach-intro__marquee">
             <div className="coach-intro__marquee-line coach-intro__marquee-line--to-right">
               <div className="coach-intro__marquee-track">
@@ -200,7 +197,6 @@ function CoachPage() {
             </div>
           </div>
 
-          {/* Обо мне на белом фоне */}
           <div className="coach-intro__about">
             <h2 className="coach-intro__about-title">Обо мне</h2>
             <p className="coach-intro__about-label">Профильное образование:</p>
@@ -210,7 +206,6 @@ function CoachPage() {
           </div>
         </div>
 
-        {/* Обо мне — статистика и фото (тёмный фон) */}
         <section
           ref={aboutRef}
           className={`coach-section coach-about ${aboutInView ? 'animate-in' : ''}`}
@@ -239,7 +234,6 @@ function CoachPage() {
           </div>
         </section>
 
-        {/* Карьера */}
         <section
           ref={careerRef}
           className={`coach-section coach-career ${careerInView ? 'animate-in' : ''}`}
@@ -263,7 +257,6 @@ function CoachPage() {
           </div>
         </section>
 
-        {/* Текст + галерея + описание + движущаяся полоса */}
         <section
           ref={galleryRef}
           className={`coach-section coach-gallery-block ${galleryInView ? 'animate-in' : ''}`}
@@ -310,7 +303,6 @@ function CoachPage() {
           </div>
         </section>
 
-        {/* Цитата и кнопка */}
         <section
           ref={quoteRef}
           className={`coach-section coach-quote ${quoteInView ? 'animate-in' : ''}`}
@@ -328,7 +320,6 @@ function CoachPage() {
           </div>
         </section>
 
-        {/* Футер — без Tilda */}
         <footer className="coach-footer">
           <div className="coach-footer__inner">
             <Link to="/" className="coach-footer__btn">ГЛАВНАЯ</Link>

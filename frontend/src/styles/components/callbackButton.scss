@@ -1,6 +1,5 @@
 @use '../variables' as *;
 
-// ===== КНОПКА ОБРАТНОГО ЗВОНКА (фиксированная) =====
 .callback-btn {
   position: fixed;
   bottom: 24px;
@@ -36,7 +35,6 @@
   }
 }
 
-// ===== ОВЕРЛЕЙ И МОДАЛКА =====
 .callback-overlay {
   position: fixed;
   inset: 0;

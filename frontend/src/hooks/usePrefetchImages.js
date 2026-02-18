@@ -1,9 +1,5 @@
 import { useEffect } from 'react'
 
-/**
- * Prefetch images when user hovers over navigation links.
- * Images are loaded into browser cache so they appear instantly on navigation.
- */
 const ROUTE_IMAGES = {
   '/': ['/images/main-bg.webp'],
   '/coach': ['/images/StroevGallery/test.webp', '/images/logo1.svg', '/images/StroevGallery/1.webp?w=400'],
@@ -35,10 +31,6 @@ export function usePrefetchOnHover() {
   return { onMouseEnter: handleLinkMouseEnter }
 }
 
-/**
- * Hook to add global prefetch listener (event delegation).
- * Call once in App.
- */
 export function usePrefetchListener() {
   useEffect(() => {
     const handler = (e) => {

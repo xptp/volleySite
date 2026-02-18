@@ -5,7 +5,6 @@
 @use 'pages/camp2025Page';
 @use 'components/callbackButton';
 
-// ===== RESET =====
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: $font-size-base; /* 1rem = 19px, масштабирует все rem по проекту */
+  font-size: $font-size-base; 
 }
 
 body {
@@ -51,14 +50,12 @@ input, textarea {
   outline: none;
 }
 
-// ===== CONTAINER =====
 .container {
   max-width: $container-max;
   margin: 0 auto;
   padding: 0 $spacing-md;
 }
 
-// ===== UTILITY =====
 .text-center {
   text-align: center;
 }

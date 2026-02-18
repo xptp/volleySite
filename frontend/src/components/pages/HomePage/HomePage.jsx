@@ -29,7 +29,6 @@ function HomePage() {
 
   return (
     <>
-      {/* Hero Section - фиксированный фон */}
       <section className="hero">
         <div className="hero__content">
           <span className="hero__tagline">TRAIN LIKE A PRO</span>
@@ -44,7 +43,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Content Section - наезжает на hero */}
       <section className="content">
         <div className="content__inner">
           <div className="content__description">

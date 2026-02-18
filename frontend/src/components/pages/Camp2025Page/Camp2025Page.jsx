@@ -175,7 +175,7 @@ function Camp2025Page() {
     }
   }, [campName, campPhone, sendCampToTelegram])
 
-  // Автопрокрутка галереи (медленнее) + пауза при взаимодействии
+  // Автопрокрутка
   useEffect(() => {
     const track = galleryTrackRef.current;
     if (!track) return;
@@ -287,7 +287,6 @@ function Camp2025Page() {
 
   return (
     <div className="camp2025-page">
-      {/* Фон приклеен; надписи и кнопки в отдельном блоке — прокручиваются вверх */}
       <div className="camp2025-hero" aria-hidden="true" />
       <div ref={heroRef} className={`camp2025-hero-content ${heroInView ? 'animate-in' : ''}`}>
         <h1 className="camp2025-hero-content__title">
@@ -319,7 +318,6 @@ function Camp2025Page() {
         </div>
       </div>
 
-      {/* Контент наезжает на картинку при прокрутке */}
       <main className="camp2025-content">
         {/* <section ref={textRef} className={`camp2025-text ${textInView ? 'animate-in' : ''}`}>
           <p>Хотите улучшить свои навыки в пляжном волейболе?</p>
