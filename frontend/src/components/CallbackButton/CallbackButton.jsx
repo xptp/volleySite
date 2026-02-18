@@ -14,7 +14,7 @@ function CallbackButton() {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [status, setStatus] = useState('idle')
   const [nameError, setNameError] = useState('')
   const [phoneError, setPhoneError] = useState('')
 
