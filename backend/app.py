@@ -1,4 +1,3 @@
-
 import os
 import requests
 from flask import Flask, request, jsonify
@@ -13,7 +12,6 @@ TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 
 def send_telegram_message(text: str) -> bool:
-    """Отправляет сообщение в Telegram. Возвращает True при успехе."""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         return False
     url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
@@ -27,10 +25,6 @@ def send_telegram_message(text: str) -> bool:
 
 @app.route('/api/send-callback', methods=['POST'])
 def send_callback():
-    """
-    Принимает JSON: { "name": "...", "phone": "..." }
-    Отправляет заявку на звонок в Telegram.
-    """
     if request.content_type != 'application/json':
         return jsonify({'error': 'Content-Type must be application/json'}), 400
 
@@ -51,7 +45,6 @@ def send_callback():
 
 @app.route('/health', methods=['GET'])
 def health():
-    """Проверка работы сервера (без секретов)."""
     return jsonify({'status': 'ok'})
 
 
