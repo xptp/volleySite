@@ -1,6 +1,5 @@
 @use '../variables' as *;
 
-// ===== ANIMATIONS =====
 @keyframes slideFromTop {
   from {
     opacity: 0;
@@ -23,14 +22,12 @@
   }
 }
 
-// ===== CAMP 2025 PAGE =====
 .camp2025-page {
   background: $black;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-// ===== ФОН: приклеен, не скроллится =====
 .camp2025-hero {
   position: fixed;
   top: 0;
@@ -43,7 +40,6 @@
     url('/images/12.webp') center/cover no-repeat;
 }
 
-// ===== НАДПИСИ И КНОПКИ: в потоке страницы, прокручиваются вверх =====
 .camp2025-hero-content {
   position: relative;
   z-index: 2;
@@ -167,14 +163,12 @@
   }
 }
 
-// ===== КОНТЕНТ: наезжает на фон при прокрутке =====
 .camp2025-content {
   position: relative;
   z-index: 2;
   background: $black;
 }
 
-// ===== БЕЛЫЙ БЛОК С ТЕКСТОМ ПО ЦЕНТРУ =====
 .camp2025-text {
   background: $white;
   padding: 72px 24px 80px;
@@ -204,7 +198,6 @@
   }
 }
 
-// ===== ЧЁРНЫЙ БЛОК «Почему кемп #STROEVTEAM?» =====
 .camp2025-why {
   background: $black;
   padding: 72px 24px 80px;
@@ -310,7 +303,6 @@
   letter-spacing: 0.2px;
 }
 
-// ===== ГАЛЕРЕЯ (прокручивающаяся полоса) =====
 .camp2025-gallery {
   background: $black;
   padding: 72px 0 80px;
@@ -408,7 +400,6 @@
   }
 }
 
-// ===== БЛОК ТРЕНЕРЫ =====
 .camp2025-trainers {
   background: $black;
   padding: 88px 24px 96px;
@@ -565,7 +556,6 @@
   }
 }
 
-// ===== БЕЛЫЙ БЛОК ДАТЫ И ЦЕНЫ =====
 .camp2025-prices {
   background: $white;
   padding: 72px 24px 80px;
@@ -861,7 +851,6 @@
   }
 }
 
-// ===== БЛОК «ПОДРОБНЕЕ О ПУТЕШЕСТВИИ» (между даты/цены и форма) =====
 .camp2025-about {
   position: relative;
   padding: 72px 24px 80px;
@@ -983,7 +972,6 @@
   }
 }
 
-// ===== ЧЁРНЫЙ БЛОК С ФОРМОЙ ЗАПИСИ =====
 .camp2025-form {
   background: $black;
   padding: 72px 24px 80px;
@@ -1140,7 +1128,6 @@
   color: #e57373;
 }
 
-// Фиксированная высота — ошибка не сдвигает поля
 .camp2025-form__field-error-wrap {
   display: block;
   min-height: 1.25rem;
@@ -1192,7 +1179,6 @@
   }
 }
 
-// ===== Примечание внутри блока формы =====
 .camp2025-form__notice {
   margin: 32px auto 0;
   font-size: 0.9rem;
@@ -1207,7 +1193,6 @@
   }
 }
 
-// ===== Блок с картой (дубликат с главной, якорь #map) =====
 .camp2025-map-block {
   background: $black;
   padding: 72px 24px 80px;
@@ -1258,7 +1243,6 @@
   }
 }
 
-// ===== Финальный белый блок: телефон, город, соцсети =====
 .camp2025-contacts {
   background: $white;
   padding: 64px 24px 72px;

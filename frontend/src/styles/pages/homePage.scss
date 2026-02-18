@@ -1,7 +1,6 @@
 @use 'sass:color';
 @use '../variables' as *;
 
-// ===== HERO SECTION =====
 .hero {
   height: 100vh;
   display: flex;
@@ -88,7 +87,6 @@
   }
 }
 
-// ===== CONTENT SECTION =====
 .content {
   position: relative;
   z-index: 2;
@@ -241,7 +239,6 @@
   }
 }
 
-// ===== MENU BUTTONS =====
 .btn-menu {
   display: flex;
   align-items: center;
@@ -282,7 +279,6 @@
   }
 }
 
-// ===== SOCIAL ICONS =====
 .social-icon {
   display: flex;
   align-items: center;
