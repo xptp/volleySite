@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react'
-
-const API_BASE = import.meta.env.VITE_API_URL || ''
+import { sendCallback } from '../../services/callbackService'
 
 const digitsOnly = (str) => (str.replace(/\D/g, '') || '')
 const isValidPhone = (phone) => {
@@ -19,12 +18,7 @@ function CallbackButton() {
   const [phoneError, setPhoneError] = useState('')
 
   const sendToTelegram = useCallback(async (userName, phoneNumber) => {
-    const res = await fetch(`${API_BASE}/api/send-callback`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: userName, phone: phoneNumber }),
-    })
-    if (!res.ok) throw new Error('Send failed')
+    await sendCallback({ name: userName, phone: phoneNumber })
   }, [])
 
   const handlePhoneChange = useCallback((e) => {

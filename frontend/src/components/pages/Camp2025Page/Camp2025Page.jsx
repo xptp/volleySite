@@ -11,11 +11,10 @@ import {
   Hotel,
   Infinity,
 } from 'lucide-react'
+import { sendCallback } from '../../../services/callbackService'
 import useInView from '../../hooks/useInView'
 import Camp2025DatesPrices from './Camp2025DatesPrices'
 import Social from '../../social'
-
-const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const YANDEX_MAP_SCRIPT =
   'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab2822b0ab84a6008a80c6734ace1e5e6c89605e7d12fe0b328123004260dd98d&amp;width=800&amp;height=450&amp;lang=ru_RU&amp;scroll=true'
@@ -112,7 +111,7 @@ function Camp2025Page() {
 
   const [campName, setCampName] = useState('');
   const [campPhone, setCampPhone] = useState('');
-  const [campFormStatus, setCampFormStatus] = useState('idle'); // idle | sending | success | error
+  const [campFormStatus, setCampFormStatus] = useState('idle');
   const [campNameError, setCampNameError] = useState('')
   const [campPhoneError, setCampPhoneError] = useState('')
 
@@ -135,12 +134,7 @@ function Camp2025Page() {
   }, [])
 
   const sendCampToTelegram = useCallback(async (userName, phoneNumber) => {
-    const res = await fetch(`${API_BASE}/api/send-callback`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: userName, phone: phoneNumber }),
-    })
-    if (!res.ok) throw new Error('Send failed')
+    await sendCallback({ name: userName, phone: phoneNumber })
   }, [])
 
   const handleCampFormSubmit = useCallback(async (e) => {
