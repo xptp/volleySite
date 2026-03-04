@@ -60,7 +60,7 @@ function HomePage() {
             ref={buttonsRef} 
             className={`content__buttons ${buttonsInView ? 'animate-in' : ''}`}
           >
-            <Link to="/camp2025" className="btn-menu" style={{ animationDelay: '100ms' }}>
+            <Link to="/camp2026" className="btn-menu" style={{ animationDelay: '100ms' }}>
               <span className="btn-menu__icon"><Tent size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">СПОРТИВНЫЙ ЛАГЕРЬ</span>
               <span className="btn-menu__arrow">›</span>
@@ -80,7 +80,7 @@ function HomePage() {
               <span className="btn-menu__text">ТУРНИРЫ</span>
               <span className="btn-menu__arrow">›</span>
             </Link> */}
-            <Link to="/camp2025#map" className="btn-menu" style={{ animationDelay: '300ms' }}>
+            <Link to="/camp2026#map" className="btn-menu" style={{ animationDelay: '300ms' }}>
               <span className="btn-menu__icon"><MapPin size={22} strokeWidth={2} color="white" /></span>
               <span className="btn-menu__text">КАК НАС НАЙТИ</span>
               <span className="btn-menu__arrow">›</span>

@@ -103,7 +103,7 @@ function TrainingPage() {
         ref={contactsRef}
         className={`training-page__cta ${contactsInView ? 'animate-in' : ''}`}
       >
-        <Link to="/camp2025#form" className="btn-red">ЗАПИСАТЬСЯ</Link>
+        <Link to="/camp2026#form" className="btn-red">ЗАПИСАТЬСЯ</Link>
         <a href="tel:+79641223344" className="training-page__phone">+7 (964)1-22-33-44</a>
         <span className="training-page__location">Россия, Сочи</span>
         

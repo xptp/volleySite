@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 const ROUTE_IMAGES = {
   '/': ['/images/main-bg.webp'],
   '/coach': ['/images/StroevGallery/test.webp', '/images/logo1.svg', '/images/StroevGallery/1.webp?w=400'],
-  '/camp2025': ['/images/12.webp', '/images/gallery/1.webp?w=600', '/images/gallery/2.webp?w=600'],
+  '/camp2026': ['/images/12.webp', '/images/gallery/1.webp?w=600', '/images/gallery/2.webp?w=600'],
   '/training': ['/images/logo1.svg', '/images/training-photo1.webp?w=400', '/images/training-photo2.webp?w=400', '/images/training-photo3.webp?w=400'],
 }
 
