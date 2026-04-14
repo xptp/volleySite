@@ -1167,10 +1167,15 @@
   justify-content: center;
   box-sizing: border-box;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: $white;
     color: $black;
     border-color: $white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
   }
 
   @media (max-width: 768px) {

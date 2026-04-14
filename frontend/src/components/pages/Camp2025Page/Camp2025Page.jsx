@@ -474,7 +474,8 @@ function Camp2025Page() {
                 className="camp2025-form__input"
                 value={campName}
                 onChange={(e) => { setCampName(e.target.value); setCampNameError('') }}
-                disabled={campFormStatus === 'sending'}
+                // disabled={campFormStatus === 'sending'}
+                disabled
               />
               <span className="camp2025-form__field-error-wrap">
                 {campNameError && <span className="camp2025-form__field-error">{campNameError}</span>}
@@ -491,7 +492,8 @@ function Camp2025Page() {
                   className="camp2025-form__input"
                   value={campPhone}
                   onChange={handleCampPhoneChange}
-                  disabled={campFormStatus === 'sending'}
+                  // disabled={campFormStatus === 'sending'}
+                  disabled
                   inputMode="numeric"
                   autoComplete="tel"
                 />
@@ -502,13 +504,15 @@ function Camp2025Page() {
             </label>
             <div className="camp2025-form__field camp2025-form__field--submit">
               <span className="camp2025-form__label" aria-hidden="true">&nbsp;</span>
-              <button type="submit" className="camp2025-form__submit" disabled={campFormStatus === 'sending'}>
+              <button type="submit" className="camp2025-form__submit" disabled>
                 {campFormStatus === 'sending' ? 'Отправка...' : 'Подтвердить'}
               </button>
               <span className="camp2025-form__field-error-wrap" aria-hidden="true" />
             </div>
           </form>
-          <p className="camp2025-form__notice">В ближайшее время после подачи заявки, с вами свяжется менеджер.</p>
+          {/* <p className="camp2025-form__notice">В ближайшее время после подачи заявки, с вами свяжется менеджер.</p> */}
+          <p className="camp2025-form__notice">Форма временно не работает, но вы можете связаться с нами по телефону:</p>
+          <a href="tel:+79885644810" className="callback-modal__phone-white">+7 (964)1-22-33-44</a>
         </section>
 
         <section

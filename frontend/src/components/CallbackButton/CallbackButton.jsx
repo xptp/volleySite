@@ -119,7 +119,8 @@ function CallbackButton() {
                     placeholder="Ваше имя *"
                     value={name}
                     onChange={(e) => { setName(e.target.value); setNameError('') }}
-                    disabled={status === 'sending'}
+                    // disabled={status === 'sending'}
+                    disabled
                     autoComplete="name"
                   />
                   <span className="callback-modal__field-error-wrap">
@@ -133,7 +134,8 @@ function CallbackButton() {
                     placeholder="+7 (900) 000-00-00 *"
                     value={phone}
                     onChange={handlePhoneChange}
-                    disabled={status === 'sending'}
+                    // disabled={status === 'sending'}
+                    disabled
                     autoComplete="tel"
                     inputMode="numeric"
                   />
@@ -144,14 +146,17 @@ function CallbackButton() {
                 <button
                   type="submit"
                   className="callback-modal__submit"
-                  disabled={status === 'sending'}
+                  // disabled={status === 'sending'}
+                  disabled
+                  
                 >
                   {status === 'sending' ? 'Отправка...' : 'ЕСТЬ ВОПРОС!'}
                 </button>
               </form>
             )}
 
-            <p className="callback-modal__or">ИЛИ ПОЗВОНИТЕ САМИ!</p>
+            {/* <p className="callback-modal__or">ИЛИ ПОЗВОНИТЕ САМИ!</p> */}
+            <p className="callback-modal__or">Форма временно не работает, но вы можете связаться с нами по телефону:</p>
             <a href="tel:+79885644810" className="callback-modal__phone">+7 (964)1-22-33-44</a>
           </div>
         </div>

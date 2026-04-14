@@ -212,6 +212,16 @@
     color: $primary-red;
   }
 }
+.callback-modal__phone-white {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $white;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
 
 @keyframes callbackFadeIn {
   from {

@@ -10,6 +10,17 @@ app = Flask(__name__)
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
+# флаг выключения отправки заявок
+
+def env_flag(name: str, default: bool = True) -> bool:
+    v = os.environ.get(name)
+    if v is None:
+        return default
+    return v.strip().lower() in {'1', 'true', 'yes', 'y', 'on'}
+
+
+SUBMISSIONS_ENABLED = env_flag('SUBMISSIONS_ENABLED', True)
+
 
 def send_telegram_message(text: str) -> bool:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
@@ -25,6 +36,10 @@ def send_telegram_message(text: str) -> bool:
 
 @app.route('/api/send-callback', methods=['POST'])
 def send_callback():
+    # если флаг выключения отправки заявок, то возвращаем ошибку
+    if not SUBMISSIONS_ENABLED:
+        return jsonify({'error': 'Submissions are temporarily disabled'}), 503
+
     if request.content_type != 'application/json':
         return jsonify({'error': 'Content-Type must be application/json'}), 400
 
